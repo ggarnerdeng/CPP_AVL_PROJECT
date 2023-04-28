@@ -7,8 +7,6 @@
 #include <iostream>
 #include "PrecondViolatedExcept.h"
 
-
-
 // ==== PrecondViolatedExcept::PrecondViolatedExcept ===========================
 //
 // This is the PrecondViolatedExcept constructor.  It sets the error message to
@@ -21,10 +19,10 @@
 //       Nothing
 //
 // =============================================================================
-
-
-
-
+PrecondViolatedExcept::PrecondViolatedExcept(const std::string errorMsg)
+{
+    m_errorMsg = errorMsg;   
+}
 
 // ==== PrecondViolatedExcept::GetMsg ==========================================
 //
@@ -37,10 +35,10 @@
 //       Returns a string.
 //
 // =============================================================================
-
-
-
-
+std::string PrecondViolatedExcept::GetMsg() const
+{
+    return m_errorMsg;
+}
 
 // ==== PrecondViolatedExcept::SetMsg ==========================================
 //
@@ -53,5 +51,7 @@
 //       Nothing
 //
 // =============================================================================
-
-
+void PrecondViolatedExcept::SetMsg(const std::string errorMsg)
+{
+    m_errorMsg = errorMsg;
+}
