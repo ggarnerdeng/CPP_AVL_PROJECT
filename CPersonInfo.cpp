@@ -48,7 +48,7 @@ CPersonInfo::CPersonInfo()
 //
 // =============================================================================
 CPersonInfo::CPersonInfo(const std::string &fname, const std::string &lname,
-                         int age = 0, double checking = 0, double savings = 0)
+                         int age, double checking, double savings)
 {
    m_fname = fname;
    m_lname = lname;
