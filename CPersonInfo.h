@@ -3,7 +3,9 @@
 // ============================================================================
 // Header file for the class CPersonInfo
 // ============================================================================
- 
+// Programmer: Garner Deng
+// Date: 4/29/23
+
 #ifndef CPERSONINFO_HEADER
 #define CPERSONINFO_HEADER
 

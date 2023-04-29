@@ -3,7 +3,9 @@
 // ============================================================================
 // Header file for the class CBinaryNode
 // ============================================================================
- 
+// Programmer: Garner Deng
+// Date: 4/29/23
+
 #ifndef CBINARY_NODE_HEADER
 #define CBINARY_NODE_HEADER
 

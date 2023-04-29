@@ -2,25 +2,29 @@
 Driver.cpp
 ===============================================================================
 Tests modules for AVL project.
+
+NOTES:
+    4/28/2023: Successfully tested CPersonInfo and PrecondViolatedExcept.
 =============================================================================*/
 
 #include <iostream>
 #include "CPersonInfo.h"
 #include "PrecondViolatedExcept.h"
+#include "CBinaryTreeInterface.h"
+#include "CBinaryNode.h"
+
 // #include "CBST.h"
-// #include "CBinaryNode.h"
 // #include "CBinaryNodeTree.h"
-// #include "CBinaryTreeInterface.h"
 
 using namespace std;
 
 // SUCCESSFULLY TESTED:
 void CPersonInfo_Test();
 void PrecondViolatedExcept_Test();
+void CBinaryNode_Test();
 
 // UNTESTED
 void CBST_Test();
-void CBinaryNode_Test();
 void CBinaryNodeTree_Test();
 void CBinaryTreeInterface_Test();
 
@@ -110,6 +114,31 @@ void Test_Exceptions(int value)
 }
 
 void CBST_Test() {}
-void CBinaryNode_Test() {}
+void CBinaryNode_Test()
+{
+    CBinaryNode<int> *node = new CBinaryNode<int>(10);
+
+    // Test GetItem and SetItem functions
+    node->SetItem(20);
+    cout << "Item value: " << node->GetItem() << endl;
+
+    // Test GetLeftChildPtr and SetLeftChildPtr functions
+    CBinaryNode<int> *leftNode = new CBinaryNode<int>(5);
+    node->SetLeftChildPtr(leftNode);
+    cout << "Left child value: " << node->GetLeftChildPtr()->GetItem() << endl;
+
+    // Test GetRightChildPtr and SetRightChildPtr functions
+    CBinaryNode<int> *rightNode = new CBinaryNode<int>(15);
+    node->SetRightChildPtr(rightNode);
+    cout << "Right child value: " << node->GetRightChildPtr()->GetItem() << endl;
+
+    // Test IsLeaf function
+    cout << "Is leaf node: " << node->IsLeaf() << endl;
+
+    // Clean up memory
+    delete node;
+    delete leftNode;
+    delete rightNode;
+}
 void CBinaryNodeTree_Test() {}
 void CBinaryTreeInterface_Test() {}

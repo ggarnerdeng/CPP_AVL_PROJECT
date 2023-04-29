@@ -3,6 +3,8 @@
 // ============================================================================
 // Implementation file for the class CPersonInfo
 // ============================================================================
+// Programmer: Garner Deng
+// Date: 4/29/23
 
 #include <iostream>
 #include <string>
