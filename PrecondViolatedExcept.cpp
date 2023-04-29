@@ -3,6 +3,8 @@
 // ============================================================================
 // Implementation file for the class PrecondViolatedExcept
 // ============================================================================
+// Programmer: Garner Deng
+// Date: 4/28/23
 
 #include <iostream>
 #include "PrecondViolatedExcept.h"
