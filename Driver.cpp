@@ -10,11 +10,11 @@ NOTES:
 #include <iostream>
 #include "CPersonInfo.h"
 #include "PrecondViolatedExcept.h"
-#include "CBinaryTreeInterface.h"
+// #include "CBinaryTreeInterface.h"
 #include "CBinaryNode.h"
 
 // #include "CBST.h"
-// #include "CBinaryNodeTree.h"
+#include "CBinaryNodeTree.h"
 
 using namespace std;
 
@@ -136,9 +136,36 @@ void CBinaryNode_Test()
     cout << "Is leaf node: " << node->IsLeaf() << endl;
 
     // Clean up memory
+
     delete node;
     delete leftNode;
     delete rightNode;
+
+    cout << "END NODE TEST" << endl;
 }
-void CBinaryNodeTree_Test() {}
+void CBinaryNodeTree_Test()
+{
+        // Test default constructor
+    CBinaryNodeTree<int> tree1;
+    std::cout << "tree1 created with default constructor.\n";
+
+    // Test type constructor
+    CBinaryNodeTree<int> tree2(5);
+    std::cout << "tree2 created with type constructor. Root value: " << tree2.getRootData() << "\n";
+
+    // Test copy constructor
+    CBinaryNodeTree<int> tree3(tree2);
+    std::cout << "tree3 created with copy constructor. Root value: " << tree3.getRootData() << "\n";
+
+    // Test destructor
+    tree1.add(1);
+    tree1.add(2);
+    tree1.add(3);
+    std::cout << "tree1 before destruction:\n";
+    tree1.displayInOrder();
+    std::cout << "Destroying tree1...\n";
+    tree1.~CBinaryNodeTree();
+    std::cout << "tree1 after destruction:\n";
+    tree1.displayInOrder();
+}
 void CBinaryTreeInterface_Test() {}

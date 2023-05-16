@@ -232,7 +232,7 @@ double CPersonInfo::GetSavings() const
 //       Returns true if the objects are the same, false otherwise.
 //
 // =============================================================================
-bool CPersonInfo::operator==(const CPersonInfo &rhs)
+bool CPersonInfo::operator==(const CPersonInfo &rhs) const
 {
    if ((m_fname != rhs.m_fname) ||
        (m_lname != rhs.m_lname) ||
@@ -261,7 +261,7 @@ bool CPersonInfo::operator==(const CPersonInfo &rhs)
 //
 //
 // =============================================================================
-bool CPersonInfo::operator>(const CPersonInfo &rhs)
+bool CPersonInfo::operator>(const CPersonInfo &rhs) const
 {
    if (m_age > rhs.m_age)
    {
@@ -285,7 +285,7 @@ bool CPersonInfo::operator>(const CPersonInfo &rhs)
 //       Returns true if lhs age is less than rhs age, otherwise false.
 //
 // =============================================================================
-bool CPersonInfo::operator<(const CPersonInfo &rhs)
+bool CPersonInfo::operator<(const CPersonInfo &rhs) const
 {
    if (m_age < rhs.m_age)
    {

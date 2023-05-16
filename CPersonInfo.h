@@ -89,21 +89,21 @@ public:
    /** Checks if two CPersonInfo classes are exactly the same.
     @param rhs: A const reference to a CPersonInfo object.
     @return  True if they are the same, false otherwise. */
-   bool         operator==(const CPersonInfo &rhs);
+   bool         operator==(const CPersonInfo &rhs) const;
 
    /** Checks which CPersonInfo class is greater. For our case, we will
        distinguish what is greater by the m_age private data member. May switch
        in the future, but this is a good start.
     @param rhs: A const reference to a CPersonInfo object.
     @return  True if it is greater, false otherwise. */
-   bool         operator>(const CPersonInfo &rhs);
+   bool         operator>(const CPersonInfo &rhs) const;
 
    /** Checks which CPersonInfo class is lesser. For our case, we will
        distinguish what is lesser by the m_age private data member. May switch
        in the future, but this is a good start.
     @param rhs: A const reference to a CPersonInfo object.
     @return  True if it is lesser, false otherwise. */
-   bool         operator<(const CPersonInfo &rhs);
+   bool         operator<(const CPersonInfo &rhs) const;
    
 
    
