@@ -31,6 +31,7 @@ void Visit(const CPersonInfo &item);
 //
 // ============================================================================
 #define norm
+#define CONTAINS_CHECK
 int main()
 {
     CBST<CPersonInfo> treeList;    // create a tree list
@@ -60,6 +61,18 @@ int main()
         treeList.Add(people[index]);
     }
 
+#ifdef CONTAINS_CHECK
+    for (index = 0; index < 30; ++index)
+    {
+        if (treeList.Contains(people[index]))
+        {
+            cout << "this index is in: " << index << " "<<treeList.Contains(people[index])<<endl;
+        }else{
+                        cout << "NOT in: " << index << " "<<treeList.Contains(people[index])<<endl;
+
+        }
+    }
+#endif
     // Display the treeList in pre-order
     cout << "\n\nDisplaying treeList in pre-order\n\n";
     treeList.PreorderTraverse(Visit);
@@ -85,7 +98,7 @@ int main()
     {
         treeList.Remove(people[index]);
     }
-   
+
     // Add 10 more items (CPersonInfo) to the treeList
     for (index = 20; index < MAX_ITEMS; ++index)
     {

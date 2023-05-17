@@ -289,34 +289,40 @@ void CBinaryNodeTree<ItemType>::Clear()
 template <class ItemType>
 bool CBinaryNodeTree<ItemType>::Contains(const ItemType &anEntry) const
 {
-    if (GetRootData() == anEntry)
-    {
-        return true;
-    }
-    else
-    {
-
-        CBinaryNode<ItemType> *temp = m_rootPtr;
-        while ((temp != nullptr) && !(temp->GetItem() == anEntry))
-        {
-            if (temp->GetItem() < anEntry)
-            {
-                temp = temp->GetLeftChildPtr();
-            }
-            else
-            {
-
-                temp = temp->GetRightChildPtr();
-            }
-        } // loop stops when temp is a nullptr or contains the correct item.
-        if (temp == nullptr)
-        {
-            return false;
-        }
-        else
+   
+     try {
+        if (!IsEmpty() && (GetRootData() == anEntry))
         {
             return true;
         }
+        else
+        {
+            CBinaryNode<ItemType> *temp = m_rootPtr;
+            while ((temp != nullptr) && !(temp->GetItem() == anEntry))
+            {
+                if (temp->GetItem() < anEntry)
+                {
+                    temp = temp->GetRightChildPtr();
+            }
+            else
+            {
+                temp = temp->GetLeftChildPtr();
+                }
+            }
+
+            if (temp == nullptr)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+    } catch (const PrecondViolatedExcept& e) {
+        // Handle the exception or perform any necessary cleanup.
+        std::cout << "An exception occurred: " << e.GetMsg() << std::endl;
+        return false; // Or return an appropriate value based on your requirements.
     }
 }
 

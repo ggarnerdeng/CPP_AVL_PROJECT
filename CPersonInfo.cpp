@@ -10,6 +10,7 @@
 #include <string>
 #include <iomanip>
 #include "CPersonInfo.h"
+#include <iomanip>
 
 using namespace std;
 
@@ -343,10 +344,12 @@ std::istream &operator>>(std::istream &ins, CPersonInfo &person)
 // =============================================================================
 std::ostream &operator<<(std::ostream &outs, const CPersonInfo &person)
 {
-   outs << person.GetFirstName() << "\t\t"
-        << person.GetLastName() << "\t\t"
-        << person.GetAge() << "\t\t"
-        << person.GetChecking() << "\t\t"
-        << person.GetSavings() << "\n";
+   outs << std::left << std::setw(15) << person.GetFirstName()
+        << std::left << std::setw(15) << person.GetLastName()
+        << std::right << std::setw(15) << person.GetAge()
+        << std::fixed << std::setprecision(2)
+        << std::right << std::setw(15) << person.GetChecking()
+        << std::right << std::setw(15) << person.GetSavings()
+        << "\n";
    return outs;
 }

@@ -93,12 +93,11 @@ CBST<ItemType>::~CBST()
 template <class ItemType>
 bool CBST<ItemType>::Add(const ItemType &newEntry)
 {
-#ifdef contain
     if (this->CBinaryNodeTree<ItemType>::Contains(newEntry))
     {
+        cout << "attempted to add duplicate";
         return false;
     }
-#endif
     CBinaryNode<ItemType> *newNodePtr = new CBinaryNode<ItemType>(newEntry);
     this->CBinaryNodeTree<ItemType>::SetRootPtr(PlaceNode(this->CBinaryNodeTree<ItemType>::GetRootPtr(), newNodePtr));
 
