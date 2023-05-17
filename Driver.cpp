@@ -14,7 +14,7 @@ NOTES:
 #include "CBinaryNode.h"
 
 // #include "CBST.h"
-#include "CBinaryNodeTree.h"
+// #include "CBinaryNodeTree.h"
 
 using namespace std;
 
@@ -24,9 +24,9 @@ void PrecondViolatedExcept_Test();
 void CBinaryNode_Test();
 
 // UNTESTED
-void CBST_Test();
-void CBinaryNodeTree_Test();
-void CBinaryTreeInterface_Test();
+// void CBST_Test();
+// void CBinaryNodeTree_Test();
+// void CBinaryTreeInterface_Test();
 
 // HELPER FUNCTIONS
 void Test_Exceptions(int value);
@@ -35,10 +35,12 @@ int main()
 {
     CPersonInfo_Test();
     PrecondViolatedExcept_Test();
-    CBST_Test();
+    // CBST_Test();
     CBinaryNode_Test();
+#ifdef BINARYTREE
     CBinaryNodeTree_Test();
     CBinaryTreeInterface_Test();
+#endif
     return 0;
 }
 
@@ -143,9 +145,11 @@ void CBinaryNode_Test()
 
     cout << "END NODE TEST" << endl;
 }
+
+#ifdef BINARYTREE
 void CBinaryNodeTree_Test()
 {
-        // Test default constructor
+    // Test default constructor
     CBinaryNodeTree<int> tree1;
     std::cout << "tree1 created with default constructor.\n";
 
@@ -169,3 +173,4 @@ void CBinaryNodeTree_Test()
     tree1.displayInOrder();
 }
 void CBinaryTreeInterface_Test() {}
+#endif

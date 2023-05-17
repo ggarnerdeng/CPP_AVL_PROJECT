@@ -232,6 +232,7 @@ ItemType CBinaryNodeTree<ItemType>::
 {
     if (IsEmpty())
     {
+
         throw PrecondViolatedExcept("ERROR: Root is Empty\n");
     }
     return GetRootPtr()->GetItem();
@@ -295,6 +296,7 @@ bool CBinaryNodeTree<ItemType>::Contains(const ItemType &anEntry) const
     }
     else
     {
+
         CBinaryNode<ItemType> *temp = m_rootPtr;
         while ((temp != nullptr) && !(temp->GetItem() == anEntry))
         {
@@ -304,6 +306,7 @@ bool CBinaryNodeTree<ItemType>::Contains(const ItemType &anEntry) const
             }
             else
             {
+
                 temp = temp->GetRightChildPtr();
             }
         } // loop stops when temp is a nullptr or contains the correct item.

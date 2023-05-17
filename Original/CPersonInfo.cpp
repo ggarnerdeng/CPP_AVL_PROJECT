@@ -3,8 +3,6 @@
 // ============================================================================
 // Implementation file for the class CPersonInfo
 // ============================================================================
-// Programmer: Garner Deng
-// Date: 4/29/23
 
 #include <iostream>
 #include <string>
@@ -13,6 +11,8 @@
 
 using namespace std;
 
+
+
 // ==== CPersonInfo::CPersonInfo ===============================================
 //
 // This is the CPersonInfo constructor.  It sets the first and last name to the
@@ -20,16 +20,15 @@ using namespace std;
 //
 // Input:
 //       void
-//
+//       
 // Output:
 //       Nothing
 //
 // =============================================================================
-CPersonInfo::CPersonInfo()
-{
-   m_fname = m_lname = "";
-   m_age = m_checking = m_savings = 0;
-}
+
+
+
+
 
 // ==== CPersonInfo::CPersonInfo ===============================================
 //
@@ -44,20 +43,15 @@ CPersonInfo::CPersonInfo()
 //       age        [IN]    - An int for the person's age.
 //       checking   [IN]    - A double for person's amount in their checking.
 //       savings    [IN]    - A double for person's amount in their savings.
-//
+//       
 // Output:
 //       void
 //
 // =============================================================================
-CPersonInfo::CPersonInfo(const std::string &fname, const std::string &lname,
-                         int age, double checking, double savings)
-{
-   m_fname = fname;
-   m_lname = lname;
-   m_age = age;
-   m_checking = checking;
-   m_savings = savings;
-}
+
+
+
+
 
 // ==== CPersonInfo::SetFirstName ==============================================
 //
@@ -66,15 +60,15 @@ CPersonInfo::CPersonInfo(const std::string &fname, const std::string &lname,
 // Input:
 //       fname      [IN]    - A const string reference variable that represents
 //                              the first name of a person.
-//
+//       
 // Output:
 //       void
 //
 // =============================================================================
-void CPersonInfo::SetFirstName(const std::string &fname)
-{
-   m_fname = fname;
-}
+
+
+
+
 
 // ==== CPersonInfo::SetLastName ===============================================
 //
@@ -83,15 +77,15 @@ void CPersonInfo::SetFirstName(const std::string &fname)
 // Input:
 //       lname      [IN]    - A const string reference variable that represents
 //                              the last name of a person.
-//
+//       
 // Output:
 //       void
 //
 // =============================================================================
-void CPersonInfo::SetLastName(const std::string &lname)
-{
-   m_lname = lname;
-}
+
+
+
+
 
 // ==== CPersonInfo::SetAge ====================================================
 //
@@ -99,30 +93,31 @@ void CPersonInfo::SetLastName(const std::string &lname)
 //
 // Input:
 //       age        [IN]    - An int for the person's age.
-//
+//       
 // Output:
 //       void
 //
 // =============================================================================
-void CPersonInfo::SetAge(int age)
-{
-   m_age = age;
-}
+
+
+
+
+
 // ==== CPersonInfo::SetChecking ===============================================
 //
 // This function assigns the checking to m_checking.
 //
 // Input:
 //       checking   [IN]    - A double for person's amount in their checking.
-//
+//       
 // Output:
 //       void
 //
 // =============================================================================
-void CPersonInfo::SetChecking(double checking)
-{
-   m_checking = checking;
-}
+
+
+
+
 
 // ==== CPersonInfo::SetSavings ================================================
 //
@@ -130,15 +125,16 @@ void CPersonInfo::SetChecking(double checking)
 //
 // Input:
 //       savings    [IN]    - A double for person's amount in their savings.
-//
+//       
 // Output:
 //       void
 //
 // =============================================================================
-void CPersonInfo::SetSavings(double savings)
-{
-   m_savings = savings;
-}
+
+
+
+
+
 
 // ==== CPersonInfo::GetFirstName ==============================================
 //
@@ -146,15 +142,16 @@ void CPersonInfo::SetSavings(double savings)
 //
 // Input:
 //       void
-//
+//       
 // Output:
 //       A string that represents the first name of a person.
 //
 // =============================================================================
-std::string CPersonInfo::GetFirstName() const
-{
-   return m_fname;
-}
+
+
+
+
+
 
 // ==== CPersonInfo::GetLastName ===============================================
 //
@@ -167,10 +164,11 @@ std::string CPersonInfo::GetFirstName() const
 //       A string that represents the last name of a person.
 //
 // =============================================================================
-std::string CPersonInfo::GetLastName() const
-{
-   return m_lname;
-}
+
+
+
+
+
 
 // ==== CPersonInfo::GetAge ====================================================
 //
@@ -183,10 +181,10 @@ std::string CPersonInfo::GetLastName() const
 //       An int that represents the age of a person.
 //
 // =============================================================================
-int CPersonInfo::GetAge() const
-{
-   return m_age;
-}
+
+
+
+
 
 // ==== CPersonInfo::GetChecking ===============================================
 //
@@ -199,10 +197,10 @@ int CPersonInfo::GetAge() const
 //       A double that represents the amount in a person's checking account.
 //
 // =============================================================================
-double CPersonInfo::GetChecking() const
-{
-   return m_checking;
-}
+
+
+
+
 
 // ==== CPersonInfo::GetSavings ================================================
 //
@@ -215,10 +213,10 @@ double CPersonInfo::GetChecking() const
 //       A double that represents the amount in a person's savings account.
 //
 // =============================================================================
-double CPersonInfo::GetSavings() const
-{
-   return m_savings;
-}
+
+
+
+
 
 // ==== CPersonInfo::operator== ================================================
 //
@@ -227,23 +225,15 @@ double CPersonInfo::GetSavings() const
 //
 // Input:
 //       rhs    [IN]    - A const CPersonInfo reference object.
-//
+//       
 // Output:
 //       Returns true if the objects are the same, false otherwise.
 //
 // =============================================================================
-bool CPersonInfo::operator==(const CPersonInfo &rhs) const
-{
-   if ((m_fname != rhs.m_fname) ||
-       (m_lname != rhs.m_lname) ||
-       (m_age != rhs.m_age) ||
-       (m_checking != rhs.m_checking) ||
-       (m_savings != rhs.m_savings))
-   {
-      return false;
-   }
-   return true;
-}
+
+
+
+
 
 // ==== CPersonInfo::operator> =================================================
 //
@@ -261,14 +251,10 @@ bool CPersonInfo::operator==(const CPersonInfo &rhs) const
 //
 //
 // =============================================================================
-bool CPersonInfo::operator>(const CPersonInfo &rhs) const
-{
-   if (m_age > rhs.m_age)
-   {
-      return true;
-   }
-   return false;
-}
+
+
+
+
 
 // ==== CPersonInfo::operator< =================================================
 //
@@ -285,14 +271,11 @@ bool CPersonInfo::operator>(const CPersonInfo &rhs) const
 //       Returns true if lhs age is less than rhs age, otherwise false.
 //
 // =============================================================================
-bool CPersonInfo::operator<(const CPersonInfo &rhs) const
-{
-   if (m_age < rhs.m_age)
-   {
-      return true;
-   }
-   return false;
-}
+
+
+
+
+
 
 // ==== operator>> =============================================================
 //
@@ -308,48 +291,10 @@ bool CPersonInfo::operator<(const CPersonInfo &rhs) const
 //       An istream reference.
 //
 // =============================================================================
-std::istream &operator>>(std::istream &ins, CPersonInfo &person)
-{
-   #ifdef v2
-   char name[256];
-   int age;
-   double checkings, savings;
-#ifdef v1
-   ins.getline(name, 256);
-   person.SetFirstName(name);
-   ins.getline(name, 256);
-   person.SetLastName(name);
-   #endif
-   std::string firstName, lastName;
-std::getline(ins, firstName);
-person.SetFirstName(firstName);
-std::getline(ins, lastName);
-person.SetLastName(lastName);
-   ins >> age;
-   person.SetAge(age);
-   ins >> checkings;
-   person.SetChecking(checkings);
-   ins >> savings;
-   person.SetSavings(savings);
-   ins.ignore(256, '\n');
-#endif
-   std::string firstName, lastName;
-   int age;
-   double checking, savings;
 
-   if (!(ins >> firstName >> lastName >> age >> checking >> savings))
-   {
-      // Failed to read all the required fields
-      return ins;
-   }
 
-   person.SetFirstName(firstName);
-   person.SetLastName(lastName);
-   person.SetAge(age);
-   person.SetChecking(checking);
-   person.SetSavings(savings);
-   return ins;
-}
+
+
 
 // ==== operator<< =============================================================
 //
@@ -364,12 +309,5 @@ person.SetLastName(lastName);
 //       An ostream reference.
 //
 // =============================================================================
-std::ostream &operator<<(std::ostream &outs, const CPersonInfo &person)
-{
-   outs << person.GetFirstName() << "\t\t"
-        << person.GetLastName() << "\t\t"
-        << person.GetAge() << "\t\t"
-        << person.GetChecking() << "\t\t"
-        << person.GetSavings() << "\n";
-   return outs;
-}
+
+

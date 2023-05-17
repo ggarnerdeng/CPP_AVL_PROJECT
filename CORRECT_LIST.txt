@@ -1,0 +1,390 @@
+
+
+Displaying treeList in pre-order
+
+Mariko         	Redfield       	 45		$         227.47	$        1874.48
+
+Kelly          	Fitzhugh       	 35		$        3524.32	$      119294.44
+
+Juliet         	Zane           	 24		$         369.85	$      243928.40
+
+Essie          	Helland        	 15		$        1760.04	$      321575.23
+
+Bethany        	Monson         	  7		$        1268.63	$      304820.58
+
+Danielle       	Calender       	 22		$        1443.41	$       98275.67
+
+Loren          	Laxson         	 25		$        1147.96	$      524617.71
+
+Art            	Loud           	 41		$        1448.32	$       96794.33
+
+Olive          	Popp           	 37		$        1831.08	$      345004.43
+
+Melodie        	Fleet          	 39		$        2537.14	$       10911.56
+
+Maxima         	Turner         	 44		$        3574.08	$       23022.60
+
+Sina           	Schram         	 42		$        1274.47	$      275682.36
+
+Kathi          	Egan           	 53		$        1690.58	$      456365.64
+
+Renato         	Mumaw          	 52		$         307.79	$       12727.22
+
+Sheilah        	Nitta          	 46		$        2494.42	$      572830.57
+
+Ellena         	Primus         	 74		$        2536.70	$       81760.37
+
+Elinore        	Dennard        	 68		$        2602.56	$      223862.25
+
+Gaston         	Gladson        	 57		$        4166.17	$       51551.42
+
+Wesley         	Fontanez       	 72		$        1097.33	$      191729.04
+
+Contessa       	Munsey         	 75		$        1466.51	$       81766.18
+
+
+
+
+Displaying treeList in post-order
+
+Bethany        	Monson         	  7		$        1268.63	$      304820.58
+
+Danielle       	Calender       	 22		$        1443.41	$       98275.67
+
+Essie          	Helland        	 15		$        1760.04	$      321575.23
+
+Loren          	Laxson         	 25		$        1147.96	$      524617.71
+
+Juliet         	Zane           	 24		$         369.85	$      243928.40
+
+Melodie        	Fleet          	 39		$        2537.14	$       10911.56
+
+Olive          	Popp           	 37		$        1831.08	$      345004.43
+
+Sina           	Schram         	 42		$        1274.47	$      275682.36
+
+Maxima         	Turner         	 44		$        3574.08	$       23022.60
+
+Art            	Loud           	 41		$        1448.32	$       96794.33
+
+Kelly          	Fitzhugh       	 35		$        3524.32	$      119294.44
+
+Sheilah        	Nitta          	 46		$        2494.42	$      572830.57
+
+Renato         	Mumaw          	 52		$         307.79	$       12727.22
+
+Gaston         	Gladson        	 57		$        4166.17	$       51551.42
+
+Wesley         	Fontanez       	 72		$        1097.33	$      191729.04
+
+Elinore        	Dennard        	 68		$        2602.56	$      223862.25
+
+Contessa       	Munsey         	 75		$        1466.51	$       81766.18
+
+Ellena         	Primus         	 74		$        2536.70	$       81760.37
+
+Kathi          	Egan           	 53		$        1690.58	$      456365.64
+
+Mariko         	Redfield       	 45		$         227.47	$        1874.48
+
+
+
+
+Displaying treeList in in-order
+
+Bethany        	Monson         	  7		$        1268.63	$      304820.58
+
+Essie          	Helland        	 15		$        1760.04	$      321575.23
+
+Danielle       	Calender       	 22		$        1443.41	$       98275.67
+
+Juliet         	Zane           	 24		$         369.85	$      243928.40
+
+Loren          	Laxson         	 25		$        1147.96	$      524617.71
+
+Kelly          	Fitzhugh       	 35		$        3524.32	$      119294.44
+
+Olive          	Popp           	 37		$        1831.08	$      345004.43
+
+Melodie        	Fleet          	 39		$        2537.14	$       10911.56
+
+Art            	Loud           	 41		$        1448.32	$       96794.33
+
+Sina           	Schram         	 42		$        1274.47	$      275682.36
+
+Maxima         	Turner         	 44		$        3574.08	$       23022.60
+
+Mariko         	Redfield       	 45		$         227.47	$        1874.48
+
+Sheilah        	Nitta          	 46		$        2494.42	$      572830.57
+
+Renato         	Mumaw          	 52		$         307.79	$       12727.22
+
+Kathi          	Egan           	 53		$        1690.58	$      456365.64
+
+Gaston         	Gladson        	 57		$        4166.17	$       51551.42
+
+Elinore        	Dennard        	 68		$        2602.56	$      223862.25
+
+Wesley         	Fontanez       	 72		$        1097.33	$      191729.04
+
+Ellena         	Primus         	 74		$        2536.70	$       81760.37
+
+Contessa       	Munsey         	 75		$        1466.51	$       81766.18
+
+
+
+
+Displaying treeList in level-order
+
+Level 0:
+
+Mariko         	Redfield       	 45		$         227.47	$        1874.48
+
+
+Level 1:
+
+Kelly          	Fitzhugh       	 35		$        3524.32	$      119294.44
+
+Kathi          	Egan           	 53		$        1690.58	$      456365.64
+
+
+Level 2:
+
+Juliet         	Zane           	 24		$         369.85	$      243928.40
+
+Art            	Loud           	 41		$        1448.32	$       96794.33
+
+Renato         	Mumaw          	 52		$         307.79	$       12727.22
+
+Ellena         	Primus         	 74		$        2536.70	$       81760.37
+
+
+Level 3:
+
+Essie          	Helland        	 15		$        1760.04	$      321575.23
+
+Loren          	Laxson         	 25		$        1147.96	$      524617.71
+
+Olive          	Popp           	 37		$        1831.08	$      345004.43
+
+Maxima         	Turner         	 44		$        3574.08	$       23022.60
+
+Sheilah        	Nitta          	 46		$        2494.42	$      572830.57
+
+Elinore        	Dennard        	 68		$        2602.56	$      223862.25
+
+Contessa       	Munsey         	 75		$        1466.51	$       81766.18
+
+
+Level 4:
+
+Bethany        	Monson         	  7		$        1268.63	$      304820.58
+
+Danielle       	Calender       	 22		$        1443.41	$       98275.67
+
+Melodie        	Fleet          	 39		$        2537.14	$       10911.56
+
+Sina           	Schram         	 42		$        1274.47	$      275682.36
+
+Gaston         	Gladson        	 57		$        4166.17	$       51551.42
+
+Wesley         	Fontanez       	 72		$        1097.33	$      191729.04
+
+
+
+
+
+Displaying treeList3 in pre-order
+
+Kelly          	Fitzhugh       	 35		$        3524.32	$      119294.44
+
+Juliet         	Zane           	 24		$         369.85	$      243928.40
+
+Werner         	Brocious       	  9		$         362.68	$       20177.31
+
+Eugenio        	Kopp           	  5		$         564.49	$       16870.49
+
+Essie          	Helland        	 15		$        1760.04	$      321575.23
+
+Julie          	Wunsch         	 23		$        3654.23	$      732474.11
+
+Loren          	Laxson         	 25		$        1147.96	$      524617.71
+
+Lolita         	Creamer        	 33		$        1323.37	$        1141.21
+
+Gaston         	Gladson        	 57		$        4166.17	$       51551.42
+
+Sina           	Schram         	 42		$        1274.47	$      275682.36
+
+Melodie        	Fleet          	 39		$        2537.14	$       10911.56
+
+Romelia        	Sill           	 36		$         798.98	$      966078.11
+
+Nenita         	Holub          	 43		$        3239.85	$      123214.65
+
+Heriberto      	Hassinger      	 49		$        3338.64	$      204888.58
+
+Wesley         	Fontanez       	 72		$        1097.33	$      191729.04
+
+Elinore        	Dennard        	 68		$        2602.56	$      223862.25
+
+Lorrie         	Wittig         	 67		$        1458.52	$      674047.13
+
+Cherise        	Folts          	 69		$        3948.63	$      339951.51
+
+Contessa       	Munsey         	 75		$        1466.51	$       81766.18
+
+Syreeta        	Silverstein    	 78		$        1116.19	$      322621.58
+
+
+
+
+Displaying treeList3 in post-order
+
+Eugenio        	Kopp           	  5		$         564.49	$       16870.49
+
+Julie          	Wunsch         	 23		$        3654.23	$      732474.11
+
+Essie          	Helland        	 15		$        1760.04	$      321575.23
+
+Werner         	Brocious       	  9		$         362.68	$       20177.31
+
+Lolita         	Creamer        	 33		$        1323.37	$        1141.21
+
+Loren          	Laxson         	 25		$        1147.96	$      524617.71
+
+Juliet         	Zane           	 24		$         369.85	$      243928.40
+
+Romelia        	Sill           	 36		$         798.98	$      966078.11
+
+Melodie        	Fleet          	 39		$        2537.14	$       10911.56
+
+Heriberto      	Hassinger      	 49		$        3338.64	$      204888.58
+
+Nenita         	Holub          	 43		$        3239.85	$      123214.65
+
+Sina           	Schram         	 42		$        1274.47	$      275682.36
+
+Lorrie         	Wittig         	 67		$        1458.52	$      674047.13
+
+Cherise        	Folts          	 69		$        3948.63	$      339951.51
+
+Elinore        	Dennard        	 68		$        2602.56	$      223862.25
+
+Syreeta        	Silverstein    	 78		$        1116.19	$      322621.58
+
+Contessa       	Munsey         	 75		$        1466.51	$       81766.18
+
+Wesley         	Fontanez       	 72		$        1097.33	$      191729.04
+
+Gaston         	Gladson        	 57		$        4166.17	$       51551.42
+
+Kelly          	Fitzhugh       	 35		$        3524.32	$      119294.44
+
+
+
+
+Displaying treeList3 in in-order
+
+Eugenio        	Kopp           	  5		$         564.49	$       16870.49
+
+Werner         	Brocious       	  9		$         362.68	$       20177.31
+
+Essie          	Helland        	 15		$        1760.04	$      321575.23
+
+Julie          	Wunsch         	 23		$        3654.23	$      732474.11
+
+Juliet         	Zane           	 24		$         369.85	$      243928.40
+
+Loren          	Laxson         	 25		$        1147.96	$      524617.71
+
+Lolita         	Creamer        	 33		$        1323.37	$        1141.21
+
+Kelly          	Fitzhugh       	 35		$        3524.32	$      119294.44
+
+Romelia        	Sill           	 36		$         798.98	$      966078.11
+
+Melodie        	Fleet          	 39		$        2537.14	$       10911.56
+
+Sina           	Schram         	 42		$        1274.47	$      275682.36
+
+Nenita         	Holub          	 43		$        3239.85	$      123214.65
+
+Heriberto      	Hassinger      	 49		$        3338.64	$      204888.58
+
+Gaston         	Gladson        	 57		$        4166.17	$       51551.42
+
+Lorrie         	Wittig         	 67		$        1458.52	$      674047.13
+
+Elinore        	Dennard        	 68		$        2602.56	$      223862.25
+
+Cherise        	Folts          	 69		$        3948.63	$      339951.51
+
+Wesley         	Fontanez       	 72		$        1097.33	$      191729.04
+
+Contessa       	Munsey         	 75		$        1466.51	$       81766.18
+
+Syreeta        	Silverstein    	 78		$        1116.19	$      322621.58
+
+
+
+
+Displaying treeList3 in level-order
+
+Level 0:
+
+Kelly          	Fitzhugh       	 35		$        3524.32	$      119294.44
+
+
+Level 1:
+
+Juliet         	Zane           	 24		$         369.85	$      243928.40
+
+Gaston         	Gladson        	 57		$        4166.17	$       51551.42
+
+
+Level 2:
+
+Werner         	Brocious       	  9		$         362.68	$       20177.31
+
+Loren          	Laxson         	 25		$        1147.96	$      524617.71
+
+Sina           	Schram         	 42		$        1274.47	$      275682.36
+
+Wesley         	Fontanez       	 72		$        1097.33	$      191729.04
+
+
+Level 3:
+
+Eugenio        	Kopp           	  5		$         564.49	$       16870.49
+
+Essie          	Helland        	 15		$        1760.04	$      321575.23
+
+Lolita         	Creamer        	 33		$        1323.37	$        1141.21
+
+Melodie        	Fleet          	 39		$        2537.14	$       10911.56
+
+Nenita         	Holub          	 43		$        3239.85	$      123214.65
+
+Elinore        	Dennard        	 68		$        2602.56	$      223862.25
+
+Contessa       	Munsey         	 75		$        1466.51	$       81766.18
+
+
+Level 4:
+
+Julie          	Wunsch         	 23		$        3654.23	$      732474.11
+
+Romelia        	Sill           	 36		$         798.98	$      966078.11
+
+Heriberto      	Hassinger      	 49		$        3338.64	$      204888.58
+
+Lorrie         	Wittig         	 67		$        1458.52	$      674047.13
+
+Cherise        	Folts          	 69		$        3948.63	$      339951.51
+
+Syreeta        	Silverstein    	 78		$        1116.19	$      322621.58
+
+
+

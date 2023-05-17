@@ -4,6 +4,8 @@
 // Implementation file for the class CBST
 // ============================================================================
 
+
+
 // ==== CBST<ItemType>::CBST ===================================================
 //
 // This is the default constructor for CBST<ItemType>. It sets the root to
@@ -11,20 +13,15 @@
 //
 // Input:
 //       void
-//
+//       
 // Output:
 //       Nothing
 //
 // =============================================================================
-template <class ItemType>
-CBST<ItemType>::CBST()
-{
-    // CBinaryNodeTree<ItemType>(nullptr);
-    CBinaryNodeTree<ItemType>::SetRootPtr(nullptr);
-    // this->CBinaryNodeTree<ItemType>::SetRootPtr(nullptr);
-}
 
-// CBST<ItemType>::CBST(): CBNodeTree(), m_rootPtr(nullptr){}
+
+
+
 
 // ==== CBST<ItemType>::CBST ===================================================
 //
@@ -34,17 +31,15 @@ CBST<ItemType>::CBST()
 //
 // Input:
 //       rootItem   [IN]    - A const reference ItemType.
-//
+//       
 // Output:
 //       Nothing
 //
 // =============================================================================
-template <class ItemType>
-CBST<ItemType>::CBST(const ItemType &rootItem)
-{
-    CBinaryNodeTree<ItemType>::SetRootPtr(new CBinaryNode<ItemType>(rootItem, nullptr, nullptr));
-    // m_rootPtr = new CBinaryNode<ItemType>(rootItem, nullptr, nullptr);
-}
+
+
+
+
 
 // ==== CBST<ItemType>::CBST ===================================================
 //
@@ -53,17 +48,15 @@ CBST<ItemType>::CBST(const ItemType &rootItem)
 //
 // Input:
 //       tree   [IN]    - A const templated CBST that will be copied.
-//
+//       
 // Output:
 //       Nothing
 //
 // =============================================================================
-template <class ItemType>
-CBST<ItemType>::CBST(const CBST<ItemType> &tree)
-{
-    // this->CBinaryNodeTree<ItemType>::SetRootPtr(CBinaryNodeTree<ItemType>::CopyTree(tree.m_rootPtr));
-    CBinaryNodeTree<ItemType>::SetRootPtr(CBinaryNodeTree<ItemType>::CopyTree(tree.CBinaryNodeTree<ItemType>::GetRootPtr()));
-}
+
+
+
+
 
 // ==== CBST<ItemType>::~CBST ==================================================
 //
@@ -72,19 +65,15 @@ CBST<ItemType>::CBST(const CBST<ItemType> &tree)
 //
 // Input:
 //       void
-//
+//       
 // Output:
 //       Nothing
 //
 // =============================================================================
-template <class ItemType>
-CBST<ItemType>::~CBST()
-{
-    // CBinaryNodeTree<ItemType>::DestroyTree();
-    CBinaryNodeTree<ItemType>::Clear();
 
-    // this->CBinaryNodeTree<ItemType>::DestroyTree();
-}
+
+
+
 
 // ==== CBST<ItemType>::Add ====================================================
 //
@@ -94,31 +83,32 @@ CBST<ItemType>::~CBST()
 // Input:
 //       newEntry   [IN]    - A const ItemType reference to the new entry to be
 //                              added to the tree.
+//       
+// Output:
+//       Returns true if successful, otherwise false.
+//
+// =============================================================================
+
+
+
+
+
+// ==== CBST<ItemType>::Remove =================================================
+//
+// This function removes an entry (a node), if it exists, from the tree.
+//
+// Input:
+//       anEntry    [IN]    - A const ItemType reference to the new entry to be
+//                              added to the tree.
 //
 // Output:
 //       Returns true if successful, otherwise false.
 //
 // =============================================================================
-template <class ItemType>
-bool CBST<ItemType>::Add(const ItemType &newEntry)
-{
-#ifdef contain
-    if (this->CBinaryNodeTree<ItemType>::Contains(newEntry))
-    {
-        return false;
-    }
-#endif
 
-    CBinaryNode<ItemType> *newNodePtr = new CBinaryNode<ItemType>(newEntry);
-    // cout<<"try1";
-    // cout<<this->CBinaryNodeTree<ItemType>::GetRootPtr();
-    // cout<<newNodePtr->GetItem();
-    // cout<<"try2";
-    this->CBinaryNodeTree<ItemType>::SetRootPtr(PlaceNode(this->CBinaryNodeTree<ItemType>::GetRootPtr(), newNodePtr));
-    // cout<<"Try3";
 
-    return true;
-}
+
+
 
 // ==== CBST<ItemType>::operator= ==============================================
 //
@@ -131,17 +121,10 @@ bool CBST<ItemType>::Add(const ItemType &newEntry)
 //       A templated CBST reference object (the left-hand side of the tree.
 //
 // =============================================================================
-template <class ItemType>
-CBST<ItemType> &CBST<ItemType>::operator=(const CBST<ItemType> &rhs)
-{
 
-    if (this != &rhs)
-    {
-        CBinaryNodeTree<ItemType>::DestroyTree(this->GetRootPtr());
-        this->SetRootPtr(CBinaryNodeTree<ItemType>::CopyTree(rhs.GetRootPtr()));
-    }
-    return *this;
-}
+
+
+
 
 // ==== CBST<ItemType>::PlaceNode ==============================================
 //
@@ -160,52 +143,10 @@ CBST<ItemType> &CBST<ItemType>::operator=(const CBST<ItemType> &rhs)
 //          balancing, parent node may need updating).
 //
 // =============================================================================
-template <class ItemType>
-CBinaryNode<ItemType> *CBST<ItemType>::PlaceNode(CBinaryNode<ItemType> *subTreePtr,
-                                                 CBinaryNode<ItemType> *newNode)
-{
-    if (subTreePtr == nullptr)
-    {
-        return newNode;
-    }
-    else if (subTreePtr->GetItem() > newNode->GetItem())
-    {
-        CBinaryNode<ItemType> *tempPtr = PlaceNode(subTreePtr->GetLeftChildPtr(), newNode);
-        subTreePtr->SetLeftChildPtr(tempPtr);
 
-        if (CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetLeftChildPtr()) - CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetRightChildPtr()) > 1)
-        {
-            if (newNode->GetItem() < subTreePtr->GetLeftChildPtr()->GetItem())
-            {
-                // Single right rotation
-                subTreePtr = RightRotate(subTreePtr);
-            }
-            else
-            {
-                subTreePtr = LeftRightRotate(subTreePtr);
-            }
-        }
-    }
-    else
-    {
-        CBinaryNode<ItemType> *tempPtr = PlaceNode(subTreePtr->GetRightChildPtr(), newNode);
-        subTreePtr->SetRightChildPtr(tempPtr);
 
-        if (this->CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetLeftChildPtr()) - CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetRightChildPtr()) < -1)
-        {
-            if (newNode->GetItem() > subTreePtr->GetRightChildPtr()->GetItem())
-            {
-                // Single left rotation
-                subTreePtr = LeftRotate(subTreePtr);
-            }
-            else
-            {
-                subTreePtr = RightLeftRotate(subTreePtr);
-            }
-        }
-    }
-    return subTreePtr;
-}
+
+
 
 // ==== CBST<ItemType>::LeftRotate =============================================
 //
@@ -219,16 +160,10 @@ CBinaryNode<ItemType> *CBST<ItemType>::PlaceNode(CBinaryNode<ItemType> *subTreeP
 //          "subTreePtr" after the rotation.
 //
 // =============================================================================
-template <class ItemType>
-CBinaryNode<ItemType> *CBST<ItemType>::LeftRotate(CBinaryNode<ItemType> *subTreePtr)
-{
-    CBinaryNode<ItemType> *ptr_A = subTreePtr->GetRightChildPtr();
-    CBinaryNode<ItemType> *ptr_B = ptr_A->GetLeftChildPtr();
-    ptr_A->SetLeftChildPtr(subTreePtr);
-    subTreePtr->SetRightChildPtr(ptr_B);
 
-    return ptr_A;
-}
+
+
+
 
 // ==== CBST<ItemType>::RightRotate ============================================
 //
@@ -242,16 +177,10 @@ CBinaryNode<ItemType> *CBST<ItemType>::LeftRotate(CBinaryNode<ItemType> *subTree
 //          "subTreePtr" after the rotation.
 //
 // =============================================================================
-template <class ItemType>
-CBinaryNode<ItemType> *CBST<ItemType>::RightRotate(CBinaryNode<ItemType> *subTreePtr)
-{
-    CBinaryNode<ItemType> *ptr_A = subTreePtr->GetLeftChildPtr();
-    CBinaryNode<ItemType> *ptr_B = ptr_A->GetRightChildPtr();
-    ptr_A->SetRightChildPtr(subTreePtr);
-    subTreePtr->SetLeftChildPtr(ptr_B);
 
-    return ptr_A;
-}
+
+
+
 
 // ==== CBST<ItemType>::LeftRightRotate ========================================
 //
@@ -267,13 +196,10 @@ CBinaryNode<ItemType> *CBST<ItemType>::RightRotate(CBinaryNode<ItemType> *subTre
 //          "subTreePtr" after the rotation.
 //
 // =============================================================================
-template <class ItemType>
-CBinaryNode<ItemType> *CBST<ItemType>::LeftRightRotate(CBinaryNode<ItemType> *subTreePtr)
-{
-    CBinaryNode<ItemType> *leftChildPtr = subTreePtr->GetLeftChildPtr();
-    subTreePtr->SetLeftChildPtr(LeftRotate(leftChildPtr));
-    return RightRotate(subTreePtr);
-}
+
+
+
+
 
 // ==== CBST<ItemType>::RightLeftRotate ========================================
 //
@@ -289,13 +215,10 @@ CBinaryNode<ItemType> *CBST<ItemType>::LeftRightRotate(CBinaryNode<ItemType> *su
 //          "subTreePtr" after the rotation.
 //
 // =============================================================================
-template <class ItemType>
-CBinaryNode<ItemType> *CBST<ItemType>::RightLeftRotate(CBinaryNode<ItemType> *subTreePtr)
-{
-    CBinaryNode<ItemType> *rightChildPtr = subTreePtr->GetRightChildPtr();
-    subTreePtr->SetRightChildPtr(RightRotate(rightChildPtr));
-    return LeftRotate(subTreePtr);
-}
+
+
+
+
 
 // ==== CBST<ItemType>::RemoveValue ============================================
 //
@@ -315,36 +238,10 @@ CBinaryNode<ItemType> *CBST<ItemType>::RightLeftRotate(CBinaryNode<ItemType> *su
 //          "subTreePtr" after the removal.
 //
 // =============================================================================
-template <class ItemType>
-CBinaryNode<ItemType> *CBST<ItemType>::RemoveValue(CBinaryNode<ItemType> *subTreePtr,
-                                                   const ItemType &target, bool &success)
-{
-    if (subTreePtr == nullptr)
-    {
-        success = false;
-    }
-    else if (target == subTreePtr->GetItem())
-    {
-        // Node found
-        // subTreePtr = RemoveNode(subTreePtr);
-        if (subTreePtr->IsLeaf())
-        {
-            delete subTreePtr;
-            subTreePtr = nullptr;
-        }
-    }
-    else if (target < subTreePtr->GetItem())
-    {
-        subTreePtr->SetLeftChildPtr(RemoveValue(subTreePtr->GetLeftChildPtr(), target, success));
-        // REBALANCE???
-    }
-    else
-    {
-        subTreePtr->SetRightChildPtr(RemoveValue(subTreePtr->GetRightChildPtr(), target, success));
-    }
 
-    return subTreePtr;
-}
+
+
+
 
 // ==== CBinaryNodeTree<ItemType>::FindNode ====================================
 //
@@ -363,53 +260,5 @@ CBinaryNode<ItemType> *CBST<ItemType>::RemoveValue(CBinaryNode<ItemType> *subTre
 //          found, a nullptr is returned.
 //
 // =============================================================================
-template <class ItemType>
-CBinaryNode<ItemType> *CBST<ItemType>::FindNode(CBinaryNode<ItemType> *treePtr,
-                                                const ItemType &target,
-                                                bool &success) const
-{
-    if (treePtr == nullptr)
-    {
-        success = false;
-        return nullptr;
-    }
 
-    if (target == treePtr->GetItem())
-    {
-        // Node found
-        success = true;
-        return treePtr;
-    }
 
-    if (target < treePtr->GetItem())
-    {
-        return FindNode(treePtr->GetLeftChildPtr(), target, success);
-    }
-    else
-    {
-        return FindNode(treePtr->GetRightChildPtr(), target, success);
-    }
-}
-
-// ==== CBST<ItemType>::Remove =================================================
-//
-// This function removes an entry (a node), if it exists, from the tree.
-//
-// Input:
-//       anEntry    [IN]    - A const ItemType reference to the new entry to be
-//                              added to the tree.
-//
-// Output:
-//       Returns true if successful, otherwise false.
-//
-// =============================================================================
-template <class ItemType>
-bool CBST<ItemType>::Remove(const ItemType &anEntry)
-{
-    bool success = false;
-    if (CBinaryNodeTree<ItemType>::Contains(anEntry))
-    {
-        this->CBinaryNodeTree<ItemType>::SetRootPtr(CBST<ItemType>::RemoveValue(this->CBinaryNodeTree<ItemType>::GetRootPtr(), anEntry, success));
-    }
-    return success;
-}

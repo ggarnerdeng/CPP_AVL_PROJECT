@@ -66,7 +66,7 @@ protected:
     int GetNumberOfNodesHelper(CBinaryNode<ItemType> *subTreePtr) const;
     CBinaryNode<ItemType> *FindMinNode(CBinaryNode<ItemType> *subTreePtr);
     CBinaryNode<ItemType> *FindMaxNode(CBinaryNode<ItemType> *subTreePtr);
-    virtual CBinaryNode<ItemType> *RemoveValue(CBinaryNode<ItemType> *subTreePtr,
+    virtual CBinaryNode<ItemType>* RemoveValue(CBinaryNode<ItemType> *subTreePtr,
                                                const ItemType &target, bool &success) = 0;
     virtual CBinaryNode<ItemType> *FindNode(CBinaryNode<ItemType> *treePtr,
                                             const ItemType &target,

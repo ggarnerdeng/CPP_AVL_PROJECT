@@ -1,10 +1,10 @@
 // ============================================================================
 // File: main.cpp
 // ============================================================================
-// Programmer: Garner Deng
-// Date: 4/26/23
+// Programmer: ???
+// Date: ???
 // Class: CSCI 133 ("Data Structures Using C++")
-// Time: ONLINE
+// Time: ???
 // Instructor: Dr. Rodriguez
 // Project: Project CBST
 //
@@ -92,9 +92,7 @@ int     main()
     {
         treeList.Add(people[index]);
     }
-    cout << "\n\nDisplaying treeList in pre-order A SECOND TIME, AFTER REMOVING FIRST 10 and ADDING 10 MORE\n\n";
-    treeList.PreorderTraverse(Visit);
-    cout << endl;
+
     // Create more CBST objects to test the type and copy CTORs
     CBST<CPersonInfo>    treeList2(treeList);   // Copy CTOR
     CBST<CPersonInfo>    treeList3(people[0]);  // Type CTOR
