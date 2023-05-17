@@ -1,0 +1,180 @@
+
+
+Displaying treeList in pre-order
+
+Mariko		Redfield		45		227.47		1874.48
+
+Kelly		Fitzhugh		35		3524.32		119294
+
+Juliet		Zane		24		369.85		243928
+
+Essie		Helland		15		1760.04		321575
+
+Bethany		Monson		7		1268.63		304821
+
+Danielle		Calender		22		1443.41		98275.7
+
+Loren		Laxson		25		1147.96		524618
+
+Art		Loud		41		1448.32		96794.3
+
+Olive		Popp		37		1831.08		345004
+
+Melodie		Fleet		39		2537.14		10911.6
+
+Maxima		Turner		44		3574.08		23022.6
+
+Sina		Schram		42		1274.47		275682
+
+Kathi		Egan		53		1690.58		456366
+
+Renato		Mumaw		52		307.79		12727.2
+
+Sheilah		Nitta		46		2494.42		572831
+
+Ellena		Primus		74		2536.7		81760.4
+
+Elinore		Dennard		68		2602.56		223862
+
+Gaston		Gladson		57		4166.17		51551.4
+
+Wesley		Fontanez		72		1097.33		191729
+
+Contessa		Munsey		75		1466.51		81766.2
+
+
+
+
+Displaying treeList in post-order
+
+Bethany		Monson		7		1268.63		304821
+
+Danielle		Calender		22		1443.41		98275.7
+
+Essie		Helland		15		1760.04		321575
+
+Loren		Laxson		25		1147.96		524618
+
+Juliet		Zane		24		369.85		243928
+
+Melodie		Fleet		39		2537.14		10911.6
+
+Olive		Popp		37		1831.08		345004
+
+Sina		Schram		42		1274.47		275682
+
+Maxima		Turner		44		3574.08		23022.6
+
+Art		Loud		41		1448.32		96794.3
+
+Kelly		Fitzhugh		35		3524.32		119294
+
+Sheilah		Nitta		46		2494.42		572831
+
+Renato		Mumaw		52		307.79		12727.2
+
+Gaston		Gladson		57		4166.17		51551.4
+
+Wesley		Fontanez		72		1097.33		191729
+
+Elinore		Dennard		68		2602.56		223862
+
+Contessa		Munsey		75		1466.51		81766.2
+
+Ellena		Primus		74		2536.7		81760.4
+
+Kathi		Egan		53		1690.58		456366
+
+Mariko		Redfield		45		227.47		1874.48
+
+
+
+
+Displaying treeList in in-order
+
+Bethany		Monson		7		1268.63		304821
+
+Essie		Helland		15		1760.04		321575
+
+Danielle		Calender		22		1443.41		98275.7
+
+Juliet		Zane		24		369.85		243928
+
+Loren		Laxson		25		1147.96		524618
+
+Kelly		Fitzhugh		35		3524.32		119294
+
+Olive		Popp		37		1831.08		345004
+
+Melodie		Fleet		39		2537.14		10911.6
+
+Art		Loud		41		1448.32		96794.3
+
+Sina		Schram		42		1274.47		275682
+
+Maxima		Turner		44		3574.08		23022.6
+
+Mariko		Redfield		45		227.47		1874.48
+
+Sheilah		Nitta		46		2494.42		572831
+
+Renato		Mumaw		52		307.79		12727.2
+
+Kathi		Egan		53		1690.58		456366
+
+Gaston		Gladson		57		4166.17		51551.4
+
+Elinore		Dennard		68		2602.56		223862
+
+Wesley		Fontanez		72		1097.33		191729
+
+Ellena		Primus		74		2536.7		81760.4
+
+Contessa		Munsey		75		1466.51		81766.2
+
+
+
+
+Displaying treeList in level-order
+
+Mariko		Redfield		45		227.47		1874.48
+
+Kelly		Fitzhugh		35		3524.32		119294
+
+Kathi		Egan		53		1690.58		456366
+
+Juliet		Zane		24		369.85		243928
+
+Art		Loud		41		1448.32		96794.3
+
+Renato		Mumaw		52		307.79		12727.2
+
+Ellena		Primus		74		2536.7		81760.4
+
+Essie		Helland		15		1760.04		321575
+
+Loren		Laxson		25		1147.96		524618
+
+Olive		Popp		37		1831.08		345004
+
+Maxima		Turner		44		3574.08		23022.6
+
+Sheilah		Nitta		46		2494.42		572831
+
+Elinore		Dennard		68		2602.56		223862
+
+Contessa		Munsey		75		1466.51		81766.2
+
+Bethany		Monson		7		1268.63		304821
+
+Danielle		Calender		22		1443.41		98275.7
+
+Melodie		Fleet		39		2537.14		10911.6
+
+Sina		Schram		42		1274.47		275682
+
+Gaston		Gladson		57		4166.17		51551.4
+
+Wesley		Fontanez		72		1097.33		191729
+
+

@@ -119,6 +119,48 @@ CBinaryNode<ItemType> *PlaceNode(CBinaryNode<ItemType> *subTreePtr,
 
 
 
+else if (target < subTreePtr->GetItem())
+{
+    subTreePtr->SetLeftChildPtr(RemoveValue(subTreePtr->GetLeftChildPtr(), target, success));
+    // Perform AVL tree rebalancing if necessary
+    if (CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetRightChildPtr()) - CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetLeftChildPtr()) == 2)
+    {
+        if (target < subTreePtr->GetLeftChildPtr()->GetItem())
+            subTreePtr = RightRotate(subTreePtr);
+        else
+            subTreePtr = LeftRightRotate(subTreePtr);
+    }
+    else if (CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetLeftChildPtr()) - CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetRightChildPtr()) == 2)
+    {
+        if (target > subTreePtr->GetRightChildPtr()->GetItem())
+            subTreePtr = LeftRotate(subTreePtr);
+        else
+            subTreePtr = RightLeftRotate(subTreePtr);
+    }
+}
 
 
+
+Similarly, update the rebalancing section for the case when target > subTreePtr->GetItem(). Replace the following code:
+
+cpp
+Copy code
+if (CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetLeftChildPtr()) - CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetRightChildPtr()) == 2)
+{
+    if (target > subTreePtr->GetRightChildPtr()->GetItem())
+        subTreePtr = LeftRotate(subTreePtr);
+    else
+        subTreePtr = RightLeftRotate(subTreePtr);
+}
+with this updated code:
+
+cpp
+Copy code
+else if (CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetLeftChildPtr()) - CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetRightChildPtr()) == 2)
+{
+    if (target > subTreePtr->GetRightChildPtr()->GetItem())
+        subTreePtr = LeftRotate(subTreePtr);
+    else
+        subTreePtr = RightLeftRotate(subTreePtr);
+}
 */

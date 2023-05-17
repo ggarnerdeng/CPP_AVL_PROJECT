@@ -310,29 +310,6 @@ bool CPersonInfo::operator<(const CPersonInfo &rhs) const
 // =============================================================================
 std::istream &operator>>(std::istream &ins, CPersonInfo &person)
 {
-   #ifdef v2
-   char name[256];
-   int age;
-   double checkings, savings;
-#ifdef v1
-   ins.getline(name, 256);
-   person.SetFirstName(name);
-   ins.getline(name, 256);
-   person.SetLastName(name);
-   #endif
-   std::string firstName, lastName;
-std::getline(ins, firstName);
-person.SetFirstName(firstName);
-std::getline(ins, lastName);
-person.SetLastName(lastName);
-   ins >> age;
-   person.SetAge(age);
-   ins >> checkings;
-   person.SetChecking(checkings);
-   ins >> savings;
-   person.SetSavings(savings);
-   ins.ignore(256, '\n');
-#endif
    std::string firstName, lastName;
    int age;
    double checking, savings;

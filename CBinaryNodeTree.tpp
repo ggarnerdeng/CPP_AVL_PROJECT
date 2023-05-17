@@ -87,7 +87,6 @@ CBinaryNodeTree<ItemType>::
     CBinaryNodeTree(const CBinaryNodeTree<ItemType> &tree)
 {
     m_rootPtr = CopyTree(tree.m_rootPtr);
-    // new CBinaryNode<ItemType>(tree.m_rootPtr, CopyTree(tree.GetRootPtr()->GetLeftChildPtr), CopyTree//(tree.GetRootPtr()->GetRightChildPtr));
 }
 // ==== CBinaryNodeTree<ItemType>::CopyTree ====================================
 //
@@ -386,6 +385,7 @@ void CBinaryNodeTree<ItemType>::
 {
     Inorder(Visit, m_rootPtr);
 }
+
 // ==== CBinaryNodeTree<ItemType>::Inorder ====================================
 //
 // This function traverses the tree in in-order.
@@ -431,6 +431,7 @@ void CBinaryNodeTree<ItemType>::
 {
     Postorder(Visit, m_rootPtr);
 }
+
 // ==== CBinaryNodeTree<ItemType>::Postorder ===================================
 //
 // This function traverses the tree in post-order.
@@ -479,6 +480,7 @@ void CBinaryNodeTree<ItemType>::
         Levelorder(Visit, m_rootPtr, i);
     }
 }
+
 // ==== CBinaryNodeTree<ItemType>::Levelorder ==================================
 //
 // This function traverses the tree in level-order.
