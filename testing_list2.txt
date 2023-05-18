@@ -1,180 +1,172 @@
 
 
+Adding First 10 items
+
+this index is in: 0 1
+this index is in: 1 1
+this index is in: 2 1
+this index is in: 3 1
+this index is in: 4 1
+this index is in: 5 1
+this index is in: 6 1
+this index is in: 7 1
+this index is in: 8 1
+this index is in: 9 1
+NOT in: 10 0
+NOT in: 11 0
+NOT in: 12 0
+NOT in: 13 0
+NOT in: 14 0
+NOT in: 15 0
+NOT in: 16 0
+NOT in: 17 0
+NOT in: 18 0
+NOT in: 19 0
+NOT in: 20 0
+NOT in: 21 0
+NOT in: 22 0
+NOT in: 23 0
+NOT in: 24 0
+NOT in: 25 0
+NOT in: 26 0
+NOT in: 27 0
+NOT in: 28 0
+NOT in: 29 0
+
+
 Displaying treeList in pre-order
 
-Mariko		Redfield		45		227.47		1874.48
+Art            Loud                        41        1448.32       96794.33
 
-Kelly		Fitzhugh		35		3524.32		119294
+Danielle       Calender                    22        1443.41       98275.67
 
-Juliet		Zane		24		369.85		243928
+Bethany        Monson                       7        1268.63      304820.58
 
-Essie		Helland		15		1760.04		321575
+Olive          Popp                        37        1831.08      345004.43
 
-Bethany		Monson		7		1268.63		304821
+Renato         Mumaw                       52         307.79       12727.22
 
-Danielle		Calender		22		1443.41		98275.7
+Mariko         Redfield                    45         227.47        1874.48
 
-Loren		Laxson		25		1147.96		524618
+Maxima         Turner                      44        3574.08       23022.60
 
-Art		Loud		41		1448.32		96794.3
+Sheilah        Nitta                       46        2494.42      572830.57
 
-Olive		Popp		37		1831.08		345004
+Kathi          Egan                        53        1690.58      456365.64
 
-Melodie		Fleet		39		2537.14		10911.6
-
-Maxima		Turner		44		3574.08		23022.6
-
-Sina		Schram		42		1274.47		275682
-
-Kathi		Egan		53		1690.58		456366
-
-Renato		Mumaw		52		307.79		12727.2
-
-Sheilah		Nitta		46		2494.42		572831
-
-Ellena		Primus		74		2536.7		81760.4
-
-Elinore		Dennard		68		2602.56		223862
-
-Gaston		Gladson		57		4166.17		51551.4
-
-Wesley		Fontanez		72		1097.33		191729
-
-Contessa		Munsey		75		1466.51		81766.2
+Ellena         Primus                      74        2536.70       81760.37
 
 
 
 
 Displaying treeList in post-order
 
-Bethany		Monson		7		1268.63		304821
+Bethany        Monson                       7        1268.63      304820.58
 
-Danielle		Calender		22		1443.41		98275.7
+Olive          Popp                        37        1831.08      345004.43
 
-Essie		Helland		15		1760.04		321575
+Danielle       Calender                    22        1443.41       98275.67
 
-Loren		Laxson		25		1147.96		524618
+Maxima         Turner                      44        3574.08       23022.60
 
-Juliet		Zane		24		369.85		243928
+Sheilah        Nitta                       46        2494.42      572830.57
 
-Melodie		Fleet		39		2537.14		10911.6
+Mariko         Redfield                    45         227.47        1874.48
 
-Olive		Popp		37		1831.08		345004
+Ellena         Primus                      74        2536.70       81760.37
 
-Sina		Schram		42		1274.47		275682
+Kathi          Egan                        53        1690.58      456365.64
 
-Maxima		Turner		44		3574.08		23022.6
+Renato         Mumaw                       52         307.79       12727.22
 
-Art		Loud		41		1448.32		96794.3
-
-Kelly		Fitzhugh		35		3524.32		119294
-
-Sheilah		Nitta		46		2494.42		572831
-
-Renato		Mumaw		52		307.79		12727.2
-
-Gaston		Gladson		57		4166.17		51551.4
-
-Wesley		Fontanez		72		1097.33		191729
-
-Elinore		Dennard		68		2602.56		223862
-
-Contessa		Munsey		75		1466.51		81766.2
-
-Ellena		Primus		74		2536.7		81760.4
-
-Kathi		Egan		53		1690.58		456366
-
-Mariko		Redfield		45		227.47		1874.48
+Art            Loud                        41        1448.32       96794.33
 
 
 
 
 Displaying treeList in in-order
 
-Bethany		Monson		7		1268.63		304821
+Bethany        Monson                       7        1268.63      304820.58
 
-Essie		Helland		15		1760.04		321575
+Danielle       Calender                    22        1443.41       98275.67
 
-Danielle		Calender		22		1443.41		98275.7
+Olive          Popp                        37        1831.08      345004.43
 
-Juliet		Zane		24		369.85		243928
+Art            Loud                        41        1448.32       96794.33
 
-Loren		Laxson		25		1147.96		524618
+Maxima         Turner                      44        3574.08       23022.60
 
-Kelly		Fitzhugh		35		3524.32		119294
+Mariko         Redfield                    45         227.47        1874.48
 
-Olive		Popp		37		1831.08		345004
+Sheilah        Nitta                       46        2494.42      572830.57
 
-Melodie		Fleet		39		2537.14		10911.6
+Renato         Mumaw                       52         307.79       12727.22
 
-Art		Loud		41		1448.32		96794.3
+Kathi          Egan                        53        1690.58      456365.64
 
-Sina		Schram		42		1274.47		275682
-
-Maxima		Turner		44		3574.08		23022.6
-
-Mariko		Redfield		45		227.47		1874.48
-
-Sheilah		Nitta		46		2494.42		572831
-
-Renato		Mumaw		52		307.79		12727.2
-
-Kathi		Egan		53		1690.58		456366
-
-Gaston		Gladson		57		4166.17		51551.4
-
-Elinore		Dennard		68		2602.56		223862
-
-Wesley		Fontanez		72		1097.33		191729
-
-Ellena		Primus		74		2536.7		81760.4
-
-Contessa		Munsey		75		1466.51		81766.2
+Ellena         Primus                      74        2536.70       81760.37
 
 
 
 
 Displaying treeList in level-order
 
-Mariko		Redfield		45		227.47		1874.48
+Art            Loud                        41        1448.32       96794.33
 
-Kelly		Fitzhugh		35		3524.32		119294
+Danielle       Calender                    22        1443.41       98275.67
 
-Kathi		Egan		53		1690.58		456366
+Renato         Mumaw                       52         307.79       12727.22
 
-Juliet		Zane		24		369.85		243928
+Bethany        Monson                       7        1268.63      304820.58
 
-Art		Loud		41		1448.32		96794.3
+Olive          Popp                        37        1831.08      345004.43
 
-Renato		Mumaw		52		307.79		12727.2
+Mariko         Redfield                    45         227.47        1874.48
 
-Ellena		Primus		74		2536.7		81760.4
+Kathi          Egan                        53        1690.58      456365.64
 
-Essie		Helland		15		1760.04		321575
+Maxima         Turner                      44        3574.08       23022.60
 
-Loren		Laxson		25		1147.96		524618
+Sheilah        Nitta                       46        2494.42      572830.57
 
-Olive		Popp		37		1831.08		345004
+Ellena         Primus                      74        2536.70       81760.37
 
-Maxima		Turner		44		3574.08		23022.6
 
-Sheilah		Nitta		46		2494.42		572831
 
-Elinore		Dennard		68		2602.56		223862
 
-Contessa		Munsey		75		1466.51		81766.2
+Removing first 9 items.
 
-Bethany		Monson		7		1268.63		304821
+Root is: Art            Loud                        41        1448.32       96794.33
 
-Danielle		Calender		22		1443.41		98275.7
+Trying to remove: Kathi          Egan                        53        1690.58      456365.64
 
-Melodie		Fleet		39		2537.14		10911.6
+Trying to set new root: Art            Loud                        41        1448.32       96794.33
 
-Sina		Schram		42		1274.47		275682
+Root is: Art            Loud                        41        1448.32       96794.33
 
-Gaston		Gladson		57		4166.17		51551.4
+Trying to remove: Olive          Popp                        37        1831.08      345004.43
 
-Wesley		Fontanez		72		1097.33		191729
+Trying to set new root: Art            Loud                        41        1448.32       96794.33
 
+Root is: Art            Loud                        41        1448.32       96794.33
+
+Trying to remove: Danielle       Calender                    22        1443.41       98275.67
+
+Trying to set new root: Mariko         Redfield                    45         227.47        1874.48
+
+changing rootMariko         Redfield                    45         227.47        1874.48
+
+hereMariko         Redfield                    45         227.47        1874.48
+
+Root is: Mariko         Redfield                    45         227.47        1874.48
+
+Trying to remove: Renato         Mumaw                       52         307.79       12727.22
+
+Trying to set new root: Mariko         Redfield                    45         227.47        1874.48
+
+Root is: Mariko         Redfield                    45         227.47        1874.48
+
+Trying to remove: Art            Loud                        41        1448.32       96794.33
+
+Trying to set new root: Mariko         Redfield                    45         227.47        1874.48
 

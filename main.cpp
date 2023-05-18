@@ -55,8 +55,15 @@ int main()
         inFile >> people[index]; // usage of overloaded stream operator
     }
 
-    // Add 20 items (CPersonInfo) to the treeList and remove them to test it.
+// Add 20 items (CPersonInfo) to the treeList and remove them to test it.
+// #define add20remove10_or_add10remove9
+#ifdef add20remove10_or_add10remove9
+    cout << "\n\nAdding First 20 items\n\n";
     for (index = 0; index < 20; ++index)
+#else
+    cout << "\n\nAdding First 10 items\n\n";
+    for (index = 0; index < 10; ++index)
+#endif
     {
         treeList.Add(people[index]);
     }
@@ -66,10 +73,11 @@ int main()
     {
         if (treeList.Contains(people[index]))
         {
-            cout << "this index is in: " << index << " "<<treeList.Contains(people[index])<<endl;
-        }else{
-                        cout << "NOT in: " << index << " "<<treeList.Contains(people[index])<<endl;
-
+            cout << "this index is in: " << index << " " << treeList.Contains(people[index]) << endl;
+        }
+        else
+        {
+            cout << "NOT in: " << index << " " << treeList.Contains(people[index]) << endl;
         }
     }
 #endif
@@ -93,13 +101,36 @@ int main()
     treeList.LevelorderTraverse(Visit);
     cout << endl;
 
-    // Remove the first 10 items
+// Remove the first 10 items
+#ifdef add20remove10_or_add10remove9
+    cout << "\n\nRemoving first 10 items.\n\n";
     for (index = 0; index < 10; ++index)
+#else
+    cout << "\n\nRemoving first 9 items.\n\n";
+    for (index = 0; index < 9; ++index)
+#endif
+
     {
         treeList.Remove(people[index]);
     }
+    cout << "\n\nFinished Removal.\n\n";
+
+#ifdef CONTAINS_CHECK
+    for (index = 0; index < 30; ++index)
+    {
+        if (treeList.Contains(people[index]))
+        {
+            cout << "this index is in: " << index << " " << treeList.Contains(people[index]) << endl;
+        }
+        else
+        {
+            cout << "NOT in: " << index << " " << treeList.Contains(people[index]) << endl;
+        }
+    }
+#endif
 
     // Add 10 more items (CPersonInfo) to the treeList
+    cout << "\n\nAdding last 10 items.\n\n";
     for (index = 20; index < MAX_ITEMS; ++index)
     {
         treeList.Add(people[index]);
