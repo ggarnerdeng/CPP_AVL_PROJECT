@@ -160,7 +160,8 @@ CBinaryNode<ItemType> *CBST<ItemType>::
         subTreePtr->SetLeftChildPtr(tempPtr);
 
         if (GetHeightHelper(subTreePtr->GetLeftChildPtr()) -
-                GetHeightHelper(subTreePtr->GetRightChildPtr()) > 1)
+                GetHeightHelper(subTreePtr->GetRightChildPtr()) >
+            1)
         {
             if (newNode->GetItem() < subTreePtr->GetLeftChildPtr()->GetItem())
             { // Single right rotation
@@ -179,7 +180,8 @@ CBinaryNode<ItemType> *CBST<ItemType>::
         subTreePtr->SetRightChildPtr(tempPtr);
 
         if (this->GetHeightHelper(subTreePtr->GetLeftChildPtr()) -
-                GetHeightHelper(subTreePtr->GetRightChildPtr()) < -1)
+                GetHeightHelper(subTreePtr->GetRightChildPtr()) <
+            -1)
         {
             if (newNode->GetItem() > subTreePtr->GetRightChildPtr()->GetItem())
             { // Single left rotation
@@ -352,23 +354,32 @@ CBinaryNode<ItemType> *CBST<ItemType>::
 {
     if (nodePtr->IsLeaf()) // Node is a leaf (no children).
     {
-        delete nodePtr;
-        nodePtr = nullptr;
-        return nodePtr;
+        if (nodePtr != nullptr)
+        {
+            delete nodePtr;
+            nodePtr = nullptr;
+            return nodePtr;
+        }
     }
     else if (nodePtr->GetLeftChildPtr() == nullptr) // Only a right child.
     {
         CBinaryNode<ItemType> *nodeToConnectPtr = nodePtr->GetRightChildPtr();
-        delete nodePtr;
-        nodePtr = nullptr;
-        return nodeToConnectPtr;
+        if (nodePtr != nullptr)
+        {
+            delete nodePtr;
+            nodePtr = nullptr;
+            return nodeToConnectPtr;
+        }
     }
     else if (nodePtr->GetRightChildPtr() == nullptr) // Only a left child.
     {
         CBinaryNode<ItemType> *nodeToConnectPtr = nodePtr->GetLeftChildPtr();
-        delete nodePtr;
-        nodePtr = nullptr;
-        return nodeToConnectPtr;
+        if (nodePtr != nullptr)
+        {
+            delete nodePtr;
+            nodePtr = nullptr;
+            return nodeToConnectPtr;
+        }
     }
     else // Node has two children. Call RVH_2Children
     {
@@ -453,7 +464,8 @@ CBinaryNode<ItemType> *CBST<ItemType>::
         subTreePtr->SetLeftChildPtr(tempPtr);
 
         if (GetHeightHelper(subTreePtr->GetRightChildPtr()) -
-                GetHeightHelper(subTreePtr->GetLeftChildPtr()) > 1)
+                GetHeightHelper(subTreePtr->GetLeftChildPtr()) >
+            1)
         {
             int RRHeight =
                 GetHeightHelper(subTreePtr->GetRightChildPtr()->GetRightChildPtr());
@@ -475,7 +487,8 @@ CBinaryNode<ItemType> *CBST<ItemType>::
             RemoveValue(subTreePtr->GetRightChildPtr(), target, success);
         subTreePtr->SetRightChildPtr(tempPtr);
         if (GetHeightHelper(subTreePtr->GetLeftChildPtr()) -
-                GetHeightHelper(subTreePtr->GetRightChildPtr()) > 1)
+                GetHeightHelper(subTreePtr->GetRightChildPtr()) >
+            1)
         {
             if (GetHeightHelper(subTreePtr->GetLeftChildPtr()->GetLeftChildPtr()) >=
                 GetHeightHelper(subTreePtr->GetLeftChildPtr()->GetRightChildPtr()))
@@ -484,7 +497,7 @@ CBinaryNode<ItemType> *CBST<ItemType>::
                 subTreePtr = LeftRightRotate(subTreePtr);
         }
     }
-    else // Target is found. Call RemoveValueHelper to remove the node. 
+    else // Target is found. Call RemoveValueHelper to remove the node.
     {
         subTreePtr = RemoveValueHelper(subTreePtr);
         success = true;

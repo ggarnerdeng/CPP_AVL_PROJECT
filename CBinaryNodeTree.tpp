@@ -550,9 +550,14 @@ operator=(const CBinaryNodeTree<ItemType> &rhs)
 
     if (rhs.m_rootPtr != nullptr)
     {
+        // Create a new tree
+        CBinaryNode<ItemType> *newTreeRoot = CopyTree(rhs.m_rootPtr);
+
         // Delete the current tree
         Clear();
-        m_rootPtr = CopyTree(rhs.m_rootPtr);
+
+        // Assign the new tree root to m_rootPtr
+        m_rootPtr = newTreeRoot;
     }
 
     return *this;
