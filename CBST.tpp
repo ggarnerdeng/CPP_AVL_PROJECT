@@ -4,6 +4,14 @@
 // Implementation file for the class CBST
 // ============================================================================
 
+#define GetHeightHelper CBinaryNodeTree<ItemType>::GetHeightHelper
+#define SetRootPtr CBinaryNodeTree<ItemType>::SetRootPtr
+#define GetRootPtr CBinaryNodeTree<ItemType>::GetRootPtr
+#define CopyTree CBinaryNodeTree<ItemType>::CopyTree
+#define Clear CBinaryNodeTree<ItemType>::Clear
+#define Contains CBinaryNodeTree<ItemType>::Contains
+#define DestroyTree CBinaryNodeTree<ItemType>::DestroyTree
+
 // ==== CBST<ItemType>::CBST ===================================================
 //
 // This is the default constructor for CBST<ItemType>. It sets the root to
@@ -19,7 +27,7 @@
 template <class ItemType>
 CBST<ItemType>::CBST()
 {
-    CBinaryNodeTree<ItemType>::SetRootPtr(nullptr);
+    SetRootPtr(nullptr);
 }
 
 // ==== CBST<ItemType>::CBST ===================================================
@@ -38,7 +46,7 @@ CBST<ItemType>::CBST()
 template <class ItemType>
 CBST<ItemType>::CBST(const ItemType &rootItem)
 {
-    CBinaryNodeTree<ItemType>::SetRootPtr(new CBinaryNode<ItemType>(rootItem, nullptr, nullptr));
+    SetRootPtr(new CBinaryNode<ItemType>(rootItem, nullptr, nullptr));
 }
 
 // ==== CBST<ItemType>::CBST ===================================================
@@ -56,7 +64,7 @@ CBST<ItemType>::CBST(const ItemType &rootItem)
 template <class ItemType>
 CBST<ItemType>::CBST(const CBST<ItemType> &tree)
 {
-    CBinaryNodeTree<ItemType>::SetRootPtr(CBinaryNodeTree<ItemType>::CopyTree(tree.CBinaryNodeTree<ItemType>::GetRootPtr()));
+    SetRootPtr(CopyTree(tree.GetRootPtr()));
 }
 
 // ==== CBST<ItemType>::~CBST ==================================================
@@ -74,7 +82,7 @@ CBST<ItemType>::CBST(const CBST<ItemType> &tree)
 template <class ItemType>
 CBST<ItemType>::~CBST()
 {
-    CBinaryNodeTree<ItemType>::Clear();
+    Clear();
 }
 
 // ==== CBST<ItemType>::Add ====================================================
@@ -93,13 +101,13 @@ CBST<ItemType>::~CBST()
 template <class ItemType>
 bool CBST<ItemType>::Add(const ItemType &newEntry)
 {
-    if (this->CBinaryNodeTree<ItemType>::Contains(newEntry))
+    if (this->Contains(newEntry))
     {
         cout << "attempted to add duplicate";
         return false;
     }
     CBinaryNode<ItemType> *newNodePtr = new CBinaryNode<ItemType>(newEntry);
-    this->CBinaryNodeTree<ItemType>::SetRootPtr(PlaceNode(this->CBinaryNodeTree<ItemType>::GetRootPtr(), newNodePtr));
+    this->SetRootPtr(PlaceNode(this->GetRootPtr(), newNodePtr));
 
     return true;
 }
@@ -120,8 +128,8 @@ CBST<ItemType> &CBST<ItemType>::operator=(const CBST<ItemType> &rhs)
 {
     if (this != &rhs)
     {
-        CBinaryNodeTree<ItemType>::DestroyTree(this->GetRootPtr());
-        this->SetRootPtr(CBinaryNodeTree<ItemType>::CopyTree(rhs.GetRootPtr()));
+        DestroyTree(this->GetRootPtr());
+        this->SetRootPtr(CopyTree(rhs.GetRootPtr()));
     }
     return *this;
 }
@@ -156,7 +164,7 @@ CBinaryNode<ItemType> *CBST<ItemType>::PlaceNode(CBinaryNode<ItemType> *subTreeP
         CBinaryNode<ItemType> *tempPtr = PlaceNode(subTreePtr->GetLeftChildPtr(), newNode);
         subTreePtr->SetLeftChildPtr(tempPtr);
 
-        if (CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetLeftChildPtr()) - CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetRightChildPtr()) > 1)
+        if (GetHeightHelper(subTreePtr->GetLeftChildPtr()) - GetHeightHelper(subTreePtr->GetRightChildPtr()) > 1)
         {
             if (newNode->GetItem() < subTreePtr->GetLeftChildPtr()->GetItem())
             {
@@ -174,7 +182,7 @@ CBinaryNode<ItemType> *CBST<ItemType>::PlaceNode(CBinaryNode<ItemType> *subTreeP
         CBinaryNode<ItemType> *tempPtr = PlaceNode(subTreePtr->GetRightChildPtr(), newNode);
         subTreePtr->SetRightChildPtr(tempPtr);
 
-        if (this->CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetLeftChildPtr()) - CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetRightChildPtr()) < -1)
+        if (this->GetHeightHelper(subTreePtr->GetLeftChildPtr()) - GetHeightHelper(subTreePtr->GetRightChildPtr()) < -1)
         {
             if (newNode->GetItem() > subTreePtr->GetRightChildPtr()->GetItem())
             {
@@ -401,9 +409,9 @@ CBinaryNode<ItemType> *CBST<ItemType>::RemoveValue(CBinaryNode<ItemType> *subTre
     {
         CBinaryNode<ItemType> *tempPtr = RemoveValue(subTreePtr->GetLeftChildPtr(), target, success);
         subTreePtr->SetLeftChildPtr(tempPtr);
-        if (CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetRightChildPtr()) - CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetLeftChildPtr()) > 1)
+        if (GetHeightHelper(subTreePtr->GetRightChildPtr()) - GetHeightHelper(subTreePtr->GetLeftChildPtr()) > 1)
         {
-            if (CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetRightChildPtr()->GetRightChildPtr()) >= CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetRightChildPtr()->GetLeftChildPtr()))
+            if (GetHeightHelper(subTreePtr->GetRightChildPtr()->GetRightChildPtr()) >= GetHeightHelper(subTreePtr->GetRightChildPtr()->GetLeftChildPtr()))
                 subTreePtr = LeftRotate(subTreePtr);
             else
                 subTreePtr = RightLeftRotate(subTreePtr);
@@ -413,9 +421,9 @@ CBinaryNode<ItemType> *CBST<ItemType>::RemoveValue(CBinaryNode<ItemType> *subTre
     {
         CBinaryNode<ItemType> *tempPtr = RemoveValue(subTreePtr->GetRightChildPtr(), target, success);
         subTreePtr->SetRightChildPtr(tempPtr);
-        if (CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetLeftChildPtr()) - CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetRightChildPtr()) > 1)
+        if (GetHeightHelper(subTreePtr->GetLeftChildPtr()) - GetHeightHelper(subTreePtr->GetRightChildPtr()) > 1)
         {
-            if (CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetLeftChildPtr()->GetLeftChildPtr()) >= CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetLeftChildPtr()->GetRightChildPtr()))
+            if (GetHeightHelper(subTreePtr->GetLeftChildPtr()->GetLeftChildPtr()) >= GetHeightHelper(subTreePtr->GetLeftChildPtr()->GetRightChildPtr()))
                 subTreePtr = RightRotate(subTreePtr);
             else
                 subTreePtr = LeftRightRotate(subTreePtr);
@@ -443,6 +451,6 @@ bool CBST<ItemType>::Remove(const ItemType &anEntry)
 {
     bool success = false;
 
-    CBinaryNodeTree<ItemType>::SetRootPtr(RemoveValue(CBinaryNodeTree<ItemType>::GetRootPtr(), anEntry, success));
+    SetRootPtr(RemoveValue(GetRootPtr(), anEntry, success));
     return success;
 }
