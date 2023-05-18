@@ -1,14 +1,14 @@
-// =============================================================================
+// ============================================================================
 // File: CBinaryNodeTree.tpp
-// =============================================================================
+// ============================================================================
 // Implementation file for the class CBinaryNodeTree.tpp
-// =============================================================================
+// ============================================================================
 // Programmer: Garner Deng
 // Date: 4/29/23
 
 #include <iostream>
 
-// ==== CBinaryNodeTree<ItemType>::CBinaryNodeTree =============================
+// ==== CBinaryNodeTree<ItemType>::CBinaryNodeTree ============================
 //
 // This is the default constructor for CBinaryNodeTree.  It sets the root to
 // nullptr.
@@ -108,7 +108,8 @@ CBinaryNode<ItemType> *CBinaryNodeTree<ItemType>::
 
     if (oldTreeRootPtr != nullptr)
     {
-        newTreePtr = new CBinaryNode<ItemType>(oldTreeRootPtr->GetItem(), nullptr, nullptr);
+        newTreePtr =
+            new CBinaryNode<ItemType>(oldTreeRootPtr->GetItem(), nullptr, nullptr);
         newTreePtr->SetLeftChildPtr(CopyTree(oldTreeRootPtr->GetLeftChildPtr()));
         newTreePtr->SetRightChildPtr(CopyTree(oldTreeRootPtr->GetRightChildPtr()));
     }
@@ -116,7 +117,7 @@ CBinaryNode<ItemType> *CBinaryNodeTree<ItemType>::
     return newTreePtr;
 }
 
-// ==== CBinaryNodeTree<ItemType>::~CBinaryNodeTree ============================
+// ==== CBinaryNodeTree<ItemType>::~CBinaryNodeTree ===========================
 //
 // This is the destructor for CBinaryNodeTree.  It will release all the nodes
 // from the heap.
@@ -127,14 +128,14 @@ CBinaryNode<ItemType> *CBinaryNodeTree<ItemType>::
 // Output:
 //       Nothing
 //
-// =============================================================================
+// ============================================================================
 template <class ItemType>
 CBinaryNodeTree<ItemType>::~CBinaryNodeTree()
 {
     DestroyTree(m_rootPtr);
 }
 
-// ==== CBinaryNodeTree<ItemType>::DestroyTree =================================
+// ==== CBinaryNodeTree<ItemType>::DestroyTree ================================
 //
 // This function destroys a tree.  In other words, it releases the memory from
 // the heap.
@@ -145,7 +146,7 @@ CBinaryNodeTree<ItemType>::~CBinaryNodeTree()
 // Output:
 //       void
 //
-// =============================================================================
+// ============================================================================
 template <class ItemType>
 void CBinaryNodeTree<ItemType>::
     DestroyTree(CBinaryNode<ItemType> *subTreePtr)
@@ -158,7 +159,7 @@ void CBinaryNodeTree<ItemType>::
     }
 }
 
-// ==== CBinaryNodeTree<ItemType>::IsEmpty =====================================
+// ==== CBinaryNodeTree<ItemType>::IsEmpty ====================================
 //
 // This function checks if the tree is empty or not.
 //
@@ -168,14 +169,14 @@ void CBinaryNodeTree<ItemType>::
 // Output:
 //       Returns true if the tree is empty, otherwise false.
 //
-// =============================================================================
+// ============================================================================
 template <class ItemType>
 bool CBinaryNodeTree<ItemType>::IsEmpty() const
 {
     return (m_rootPtr == nullptr);
 }
 
-// ==== CBinaryNodeTree<ItemType>::GetHeight ===================================
+// ==== CBinaryNodeTree<ItemType>::GetHeight ==================================
 //
 // This function returns the height of the tree.  It calls the protected member
 // function GetHeightHelper to get the height from the root of the tree.
@@ -186,14 +187,14 @@ bool CBinaryNodeTree<ItemType>::IsEmpty() const
 // Output:
 //       Returns an integer for the height of the tree.
 //
-// =============================================================================
+// ============================================================================
 template <class ItemType>
 int CBinaryNodeTree<ItemType>::GetHeight() const
 {
     return GetHeightHelper(m_rootPtr);
 }
 
-// ==== CBinaryNodeTree<ItemType>::GetNumberOfNodes ============================
+// ==== CBinaryNodeTree<ItemType>::GetNumberOfNodes ===========================
 //
 // This function returns the number of nodes in the tree.  It calls the
 // protected member function GetNumberOfNodesHelper to get the number of nodes
@@ -205,14 +206,14 @@ int CBinaryNodeTree<ItemType>::GetHeight() const
 // Output:
 //       Returns an integer for the number of nodes in the tree.
 //
-// =============================================================================
+// ============================================================================
 template <class ItemType>
 int CBinaryNodeTree<ItemType>::GetNumberOfNodes() const
 {
     return GetNumberOfNodesHelper(m_rootPtr);
 }
 
-// ==== CBinaryNodeTree<ItemType>::GetRootData =================================
+// ==== CBinaryNodeTree<ItemType>::GetRootData ================================
 //
 // This function returns the data item in the root of the tree.
 //
@@ -224,20 +225,19 @@ int CBinaryNodeTree<ItemType>::GetNumberOfNodes() const
 // Output:
 //       Returns an ItemType, which is the item in the root of the tree.
 //
-// =============================================================================
+// ============================================================================
 template <class ItemType>
 ItemType CBinaryNodeTree<ItemType>::
     GetRootData() const throw(PrecondViolatedExcept)
 {
     if (IsEmpty())
     {
-
         throw PrecondViolatedExcept("ERROR: Root is Empty\n");
     }
     return GetRootPtr()->GetItem();
 }
 
-// ==== CBinaryNodeTree<ItemType>::SetRootData =================================
+// ==== CBinaryNodeTree<ItemType>::SetRootData ================================
 //
 // This function sets the data item in the root of the tree.
 //
@@ -248,14 +248,14 @@ ItemType CBinaryNodeTree<ItemType>::
 // Output:
 //       void
 //
-// =============================================================================
+// ============================================================================
 template <class ItemType>
 void CBinaryNodeTree<ItemType>::SetRootData(const ItemType &newData)
 {
     GetRootPtr()->SetItem(newData);
 }
 
-// ==== CBinaryNodeTree<ItemType>::Clear =======================================
+// ==== CBinaryNodeTree<ItemType>::Clear ======================================
 //
 // This function removes all nodes from the heap and sets the root pointer to
 // nullptr.  To make things easier, this function can call the member function
@@ -267,14 +267,14 @@ void CBinaryNodeTree<ItemType>::SetRootData(const ItemType &newData)
 // Output:
 //       void
 //
-// =============================================================================
+// ============================================================================
 template <class ItemType>
 void CBinaryNodeTree<ItemType>::Clear()
 {
     DestroyTree(m_rootPtr);
 }
 
-// ==== CBinaryNodeTree<ItemType>::Contains ====================================
+// ==== CBinaryNodeTree<ItemType>::Contains ===================================
 //
 // This function checks if a particular entry exists in the tree.
 //
@@ -285,12 +285,12 @@ void CBinaryNodeTree<ItemType>::Clear()
 // Output:
 //       Returns true if the entry is already in the tree, false otherwise.
 //
-// =============================================================================
+// ============================================================================
 template <class ItemType>
 bool CBinaryNodeTree<ItemType>::Contains(const ItemType &anEntry) const
 {
-   
-     try {
+    try
+    {
         if (!IsEmpty() && (GetRootData() == anEntry))
         {
             return true;
@@ -303,10 +303,10 @@ bool CBinaryNodeTree<ItemType>::Contains(const ItemType &anEntry) const
                 if (temp->GetItem() < anEntry)
                 {
                     temp = temp->GetRightChildPtr();
-            }
-            else
-            {
-                temp = temp->GetLeftChildPtr();
+                }
+                else
+                {
+                    temp = temp->GetLeftChildPtr();
                 }
             }
 
@@ -319,14 +319,16 @@ bool CBinaryNodeTree<ItemType>::Contains(const ItemType &anEntry) const
                 return true;
             }
         }
-    } catch (const PrecondViolatedExcept& e) {
+    }
+    catch (const PrecondViolatedExcept &e)
+    {
         // Handle the exception or perform any necessary cleanup.
         std::cout << "An exception occurred: " << e.GetMsg() << std::endl;
-        return false; // Or return an appropriate value based on your requirements.
+        return false;
     }
 }
 
-// ==== CBinaryNodeTree<ItemType>::PreorderTraverse ============================
+// ==== CBinaryNodeTree<ItemType>::PreorderTraverse ===========================
 //
 // This function traverses in pre-order by calling the protected member function
 // Preorder.
@@ -338,7 +340,7 @@ bool CBinaryNodeTree<ItemType>::Contains(const ItemType &anEntry) const
 // Output:
 //       void
 //
-// =============================================================================
+// ============================================================================
 template <class ItemType>
 void CBinaryNodeTree<ItemType>::
     PreorderTraverse(void Visit(const ItemType &item)) const
@@ -346,7 +348,7 @@ void CBinaryNodeTree<ItemType>::
     Preorder(Visit, m_rootPtr);
 }
 
-// ==== CBinaryNodeTree<ItemType>::Preorder ====================================
+// ==== CBinaryNodeTree<ItemType>::Preorder ===================================
 //
 // This function traverses the tree in pre-order.
 //
@@ -358,7 +360,7 @@ void CBinaryNodeTree<ItemType>::
 // Output:
 //       void
 //
-// =============================================================================
+// ============================================================================
 template <class ItemType>
 void CBinaryNodeTree<ItemType>::
     Preorder(void Visit(const ItemType &item),
@@ -373,7 +375,7 @@ void CBinaryNodeTree<ItemType>::
     }
 }
 
-// ==== CBinaryNodeTree<ItemType>::InorderTraverse =============================
+// ==== CBinaryNodeTree<ItemType>::InorderTraverse ============================
 //
 // This function traverses in in-order by calling the protected member function
 // Inorder.
@@ -384,7 +386,7 @@ void CBinaryNodeTree<ItemType>::
 // Output:
 //       void
 //
-// =============================================================================
+// ============================================================================
 template <class ItemType>
 void CBinaryNodeTree<ItemType>::
     InorderTraverse(void Visit(const ItemType &item)) const
@@ -419,7 +421,7 @@ void CBinaryNodeTree<ItemType>::
     }
 }
 
-// ==== CBinaryNodeTree<ItemType>::PostorderTraverse ===========================
+// ==== CBinaryNodeTree<ItemType>::PostorderTraverse ==========================
 //
 // This function traverses in post-order by calling the protected member
 // function Postorder.
@@ -430,7 +432,7 @@ void CBinaryNodeTree<ItemType>::
 // Output:
 //       void
 //
-// =============================================================================
+// ============================================================================
 template <class ItemType>
 void CBinaryNodeTree<ItemType>::
     PostorderTraverse(void Visit(const ItemType &item)) const
@@ -438,7 +440,7 @@ void CBinaryNodeTree<ItemType>::
     Postorder(Visit, m_rootPtr);
 }
 
-// ==== CBinaryNodeTree<ItemType>::Postorder ===================================
+// ==== CBinaryNodeTree<ItemType>::Postorder ==================================
 //
 // This function traverses the tree in post-order.
 //
@@ -450,7 +452,7 @@ void CBinaryNodeTree<ItemType>::
 // Output:
 //       void
 //
-// =============================================================================
+// ============================================================================
 template <class ItemType>
 void CBinaryNodeTree<ItemType>::
     Postorder(void Visit(const ItemType &item),
@@ -464,7 +466,8 @@ void CBinaryNodeTree<ItemType>::
         Visit(item);
     }
 }
-// ==== CBinaryNodeTree<ItemType>::LevelorderTraverse ==========================
+
+// ==== CBinaryNodeTree<ItemType>::LevelorderTraverse =========================
 //
 // This function traverses in level-order by calling the protected member
 // function Levelorder for each level to process.
@@ -475,7 +478,7 @@ void CBinaryNodeTree<ItemType>::
 // Output:
 //       void
 //
-// =============================================================================
+// ============================================================================
 template <class ItemType>
 void CBinaryNodeTree<ItemType>::
     LevelorderTraverse(void Visit(const ItemType &item)) const
@@ -487,7 +490,7 @@ void CBinaryNodeTree<ItemType>::
     }
 }
 
-// ==== CBinaryNodeTree<ItemType>::Levelorder ==================================
+// ==== CBinaryNodeTree<ItemType>::Levelorder =================================
 //
 // This function traverses the tree in level-order.
 //
@@ -501,7 +504,7 @@ void CBinaryNodeTree<ItemType>::
 // Output:
 //       void
 //
-// =============================================================================
+// ============================================================================
 template <class ItemType>
 void CBinaryNodeTree<ItemType>::
     Levelorder(void Visit(const ItemType &item),
@@ -535,7 +538,7 @@ void CBinaryNodeTree<ItemType>::
 //       A templated CBinaryNodeTree reference object (the left-hand side of the
 //          tree.
 //
-// =============================================================================
+// ============================================================================
 template <class ItemType>
 CBinaryNodeTree<ItemType> &CBinaryNodeTree<ItemType>::
 operator=(const CBinaryNodeTree<ItemType> &rhs)
@@ -555,7 +558,7 @@ operator=(const CBinaryNodeTree<ItemType> &rhs)
     return *this;
 }
 
-// ==== CBinaryNodeTree<ItemType>::GetRootPtr ==================================
+// ==== CBinaryNodeTree<ItemType>::GetRootPtr =================================
 //
 // This function returns m_rootPtr
 //
@@ -566,14 +569,14 @@ operator=(const CBinaryNodeTree<ItemType> &rhs)
 //       A CBinaryNode<ItemType> templated pointer that is the address of the
 //          root pointer.
 //
-// =============================================================================
+// ============================================================================
 template <class ItemType>
 CBinaryNode<ItemType> *CBinaryNodeTree<ItemType>::GetRootPtr() const
 {
     return m_rootPtr;
 }
 
-// ==== CBinaryNodeTree<ItemType>::SetRootPtr ==================================
+// ==== CBinaryNodeTree<ItemType>::SetRootPtr =================================
 //
 // This function sets m_rootPtr
 //
@@ -582,14 +585,14 @@ CBinaryNode<ItemType> *CBinaryNodeTree<ItemType>::GetRootPtr() const
 // Output:
 //       Nothing
 //
-// =============================================================================
+// ============================================================================
 template <class ItemType>
 void CBinaryNodeTree<ItemType>::SetRootPtr(CBinaryNode<ItemType> *rootPtr)
 {
     m_rootPtr = rootPtr;
 }
 
-// ==== CBinaryNodeTree<ItemType>::GetParentNode ===============================
+// ==== CBinaryNodeTree<ItemType>::GetParentNode ==============================
 //
 // This function searches for the parent node of any node in the tree.
 //
@@ -603,7 +606,7 @@ void CBinaryNodeTree<ItemType>::SetRootPtr(CBinaryNode<ItemType> *rootPtr)
 //       A CBinaryNode<ItemType> templated pointer that is the address of the
 //          parent node pointer.
 //
-// =============================================================================
+// ============================================================================
 template <class ItemType>
 CBinaryNode<ItemType> *CBinaryNodeTree<ItemType>::
     GetParentNode(CBinaryNode<ItemType> *subTreePtr,
@@ -626,7 +629,8 @@ CBinaryNode<ItemType> *CBinaryNodeTree<ItemType>::
     }
     else
     {
-        CBinaryNode<ItemType> *parent = GetParentNode(subTreePtr->GetLeftChildPtr(), nodePtr);
+        CBinaryNode<ItemType> *parent =
+            GetParentNode(subTreePtr->GetLeftChildPtr(), nodePtr);
         if (parent)
         {
             // parent found in left subtree
@@ -640,10 +644,10 @@ CBinaryNode<ItemType> *CBinaryNodeTree<ItemType>::
     }
 }
 
-// ==== CBinaryNodeTree<ItemType>::GetHeightHelper =============================
+// ==== CBinaryNodeTree<ItemType>::GetHeightHelper ============================
 //
 // This function finds the height starting at subTreePtr (this could be root or
-// any other node within the tree).
+// any other node within the tree). ALWAYS RETURNS POSITIVE NUMBER.
 //
 // Input:
 //      subTreePtr  [IN]    - A templated CBinaryNode pointer to find the height
@@ -652,7 +656,7 @@ CBinaryNode<ItemType> *CBinaryNodeTree<ItemType>::
 // Output:
 //       An int that is the height from subTreePtr.
 //
-// =============================================================================
+// ============================================================================
 template <class ItemType>
 int CBinaryNodeTree<ItemType>::
     GetHeightHelper(CBinaryNode<ItemType> *subTreePtr) const
@@ -669,7 +673,7 @@ int CBinaryNodeTree<ItemType>::
     }
 }
 
-// ==== CBinaryNodeTree<ItemType>::GetNumberOfNodesHelper ======================
+// ==== CBinaryNodeTree<ItemType>::GetNumberOfNodesHelper =====================
 //
 // This function finds the number of nodes starting at subTreePtr (this could be
 // root or any other node within the tree).
@@ -681,7 +685,7 @@ int CBinaryNodeTree<ItemType>::
 // Output:
 //       An int that represents the number of nodes from subTreePtr.
 //
-// =============================================================================
+// ============================================================================
 template <class ItemType>
 int CBinaryNodeTree<ItemType>::
     GetNumberOfNodesHelper(CBinaryNode<ItemType> *subTreePtr) const
@@ -697,7 +701,7 @@ int CBinaryNodeTree<ItemType>::
     }
 }
 
-// ==== CBinaryNodeTree<ItemType>::FindMinNode =================================
+// ==== CBinaryNodeTree<ItemType>::FindMinNode ================================
 //
 // This function finds the minimum ItemType Node in the tree starting from
 // subTreePtr. If there is no minimum ItemType Node found, the function returns
@@ -711,7 +715,7 @@ int CBinaryNodeTree<ItemType>::
 //       A templated CBinaryNode<ItemType> pointer that points to the minimum
 //          node.
 //
-// =============================================================================
+// ============================================================================
 template <class ItemType>
 CBinaryNode<ItemType> *CBinaryNodeTree<ItemType>::
     FindMinNode(CBinaryNode<ItemType> *subTreePtr)
@@ -730,7 +734,7 @@ CBinaryNode<ItemType> *CBinaryNodeTree<ItemType>::
     return current;
 }
 
-// ==== CBinaryNodeTree<ItemType>::FindMaxNode =================================
+// ==== CBinaryNodeTree<ItemType>::FindMaxNode ================================
 //
 // This function finds the maximum ItemType Node in the tree starting from
 // subTreePtr. If there is no maximum ItemType Node found, the function returns
@@ -744,7 +748,7 @@ CBinaryNode<ItemType> *CBinaryNodeTree<ItemType>::
 //       A templated CBinaryNode<ItemType> pointer that points to the maximum
 //          node.
 //
-// =============================================================================
+// ============================================================================
 template <class ItemType>
 CBinaryNode<ItemType> *CBinaryNodeTree<ItemType>::
     FindMaxNode(CBinaryNode<ItemType> *subTreePtr)
