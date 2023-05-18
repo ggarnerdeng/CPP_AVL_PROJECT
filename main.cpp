@@ -30,8 +30,8 @@ void Visit(const CPersonInfo &item);
 // ==== main ==================================================================
 //
 // ============================================================================
-#define norm
-#define CONTAINS_CHECK
+#define add20remove10_or_add10remove9
+//#define CONTAINS_CHECK
 int main()
 {
     CBST<CPersonInfo> treeList;    // create a tree list

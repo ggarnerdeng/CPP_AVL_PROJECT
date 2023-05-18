@@ -325,77 +325,83 @@ CBinaryNode<ItemType> *CBST<ItemType>::FindNode(CBinaryNode<ItemType> *treePtr,
     }
 }
 
-#define v4
-#ifdef v4 // still doesnt work...
 template <class ItemType>
-CBinaryNode<ItemType> *CBST<ItemType>::RemoveValue(CBinaryNode<ItemType> *subTreePtr,
-                                                   const ItemType &target, bool &success)
+CBinaryNode<ItemType>* CBST<ItemType>::RemoveNode(CBinaryNode<ItemType>* nodePtr)
+{
+    if (nodePtr->IsLeaf())
+    {
+        delete nodePtr;
+        nodePtr = nullptr;
+        return nodePtr;
+    }
+    else if (nodePtr->GetLeftChildPtr() == nullptr)
+    {
+        CBinaryNode<ItemType>* nodeToConnectPtr = nodePtr->GetRightChildPtr();
+        delete nodePtr;
+        nodePtr = nullptr;
+        return nodeToConnectPtr;
+    }
+    else if (nodePtr->GetRightChildPtr() == nullptr)
+    {
+        CBinaryNode<ItemType>* nodeToConnectPtr = nodePtr->GetLeftChildPtr();
+        delete nodePtr;
+        nodePtr = nullptr;
+        return nodeToConnectPtr;
+    }
+    else
+    {
+        ItemType newNodeValue;
+        CBinaryNode<ItemType>* tempPtr = RemoveLeftmostNode(nodePtr->GetRightChildPtr(), newNodeValue);
+        nodePtr->SetRightChildPtr(tempPtr);
+        nodePtr->SetItem(newNodeValue);
+        return nodePtr;
+    }
+}
+
+template <class ItemType>
+CBinaryNode<ItemType>* CBST<ItemType>::RemoveLeftmostNode(CBinaryNode<ItemType>* nodePtr, ItemType& inorderSuccessor)
+{
+    if (nodePtr->GetLeftChildPtr() == nullptr)
+    {
+        inorderSuccessor = nodePtr->GetItem();
+        return RemoveNode(nodePtr);
+    }
+    else
+    {
+        CBinaryNode<ItemType>* tempPtr = RemoveLeftmostNode(nodePtr->GetLeftChildPtr(), inorderSuccessor);
+        nodePtr->SetLeftChildPtr(tempPtr);
+        return nodePtr;
+    }
+}
+
+// ==== CBST<ItemType>::RemoveValue ============================================
+// This function removes a value from the tree.  It also keeps the tree AVL
+// balanced after each removal.
+//
+// Input:
+//      subTreePtr  [IN]    - A templated CBinaryNode pointer to start the
+//                              search of the node to remove.
+//      target      [IN]    - A const ItemType value that we want to remove from
+//                              the tree.
+//      success     [OUT]   - A bool value that is marked true if sucessful,
+//                              false otherwise.
+// Output:
+//       An updated CBinaryNode<ItemType> templated pointer that is the new
+//          "subTreePtr" after the removal.
+// =============================================================================
+template <class ItemType>
+CBinaryNode<ItemType> *CBST<ItemType>::RemoveValue(CBinaryNode<ItemType> *subTreePtr, const ItemType &target, bool &success)
 {
     if (subTreePtr == nullptr)
     {
         success = false;
         return nullptr;
     }
-    else if (target == subTreePtr->GetItem())
-    {
-        // Node found
-        CBinaryNode<ItemType> *nodeToRemove = subTreePtr;
-        if (subTreePtr->IsLeaf())
-        {
-            delete nodeToRemove;
-            success = true;
-            return nullptr; // Set parent's child pointer to nullptr
-        }
-        else if (subTreePtr->GetLeftChildPtr() == nullptr)
-        {
-            CBinaryNode<ItemType> *rightChild = subTreePtr->GetRightChildPtr();
-            delete nodeToRemove;
-            success = true;
-            return rightChild; // Set parent's child pointer to the right child
-        }
-        else if (subTreePtr->GetRightChildPtr() == nullptr)
-        {
-            CBinaryNode<ItemType> *leftChild = subTreePtr->GetLeftChildPtr();
-            delete nodeToRemove;
-            success = true;
-            return leftChild; // Set parent's child pointer to the left child
-        }
-        else
-        {
-            // Node has two children
-            CBinaryNode<ItemType> *predecessorNode = subTreePtr->GetLeftChildPtr();
-            while (predecessorNode->GetRightChildPtr() != nullptr)
-            {
-                predecessorNode = predecessorNode->GetRightChildPtr();
-            }
-            subTreePtr->SetItem(predecessorNode->GetItem());
-subTreePtr->SetLeftChildPtr(RemoveNode(subTreePtr->GetLeftChildPtr(), predecessorNode, success));
-        }
-
-        // Update the root reference if the root node is removed
-        if (subTreePtr->GetItem() == this->CBinaryNodeTree<ItemType>::GetRootPtr()->GetItem())
-        {
-            this->CBinaryNodeTree<ItemType>::SetRootPtr(subTreePtr->GetLeftChildPtr());
-        }
-
-        // Perform AVL tree rebalancing if necessary
-        if (CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetRightChildPtr()) - CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetLeftChildPtr()) == 2)
-        {
-            if (CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetRightChildPtr()->GetRightChildPtr()) >= CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetRightChildPtr()->GetLeftChildPtr()))
-                subTreePtr = LeftRotate(subTreePtr);
-            else
-                subTreePtr = RightLeftRotate(subTreePtr);
-        }
-
-        delete nodeToRemove;
-        success = true;
-    }
     else if (target < subTreePtr->GetItem())
     {
-        subTreePtr->SetLeftChildPtr(RemoveValue(subTreePtr->GetLeftChildPtr(), target, success));
-
-        // Perform AVL tree rebalancing if necessary
-        if (CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetRightChildPtr()) - CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetLeftChildPtr()) == 2)
+        CBinaryNode<ItemType> *tempPtr = RemoveValue(subTreePtr->GetLeftChildPtr(), target, success);
+        subTreePtr->SetLeftChildPtr(tempPtr);
+        if (CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetRightChildPtr()) - CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetLeftChildPtr()) > 1)
         {
             if (CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetRightChildPtr()->GetRightChildPtr()) >= CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetRightChildPtr()->GetLeftChildPtr()))
                 subTreePtr = LeftRotate(subTreePtr);
@@ -403,12 +409,11 @@ subTreePtr->SetLeftChildPtr(RemoveNode(subTreePtr->GetLeftChildPtr(), predecesso
                 subTreePtr = RightLeftRotate(subTreePtr);
         }
     }
-    else
+    else if (target > subTreePtr->GetItem())
     {
-        subTreePtr->SetRightChildPtr(RemoveValue(subTreePtr->GetRightChildPtr(), target, success));
-
-        // Perform AVL tree rebalancing if necessary
-        if (CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetLeftChildPtr()) - CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetRightChildPtr()) == 2)
+        CBinaryNode<ItemType> *tempPtr = RemoveValue(subTreePtr->GetRightChildPtr(), target, success);
+        subTreePtr->SetRightChildPtr(tempPtr);
+        if (CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetLeftChildPtr()) - CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetRightChildPtr()) > 1)
         {
             if (CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetLeftChildPtr()->GetLeftChildPtr()) >= CBinaryNodeTree<ItemType>::GetHeightHelper(subTreePtr->GetLeftChildPtr()->GetRightChildPtr()))
                 subTreePtr = RightRotate(subTreePtr);
@@ -416,43 +421,28 @@ subTreePtr->SetLeftChildPtr(RemoveNode(subTreePtr->GetLeftChildPtr(), predecesso
                 subTreePtr = LeftRightRotate(subTreePtr);
         }
     }
-
+    else
+    {
+        subTreePtr = RemoveNode(subTreePtr);
+        success = true;
+    }
     return subTreePtr;
 }
-#endif
 
 // ==== CBST<ItemType>::Remove =================================================
-//
 // This function removes an entry (a node), if it exists, from the tree.
 //
 // Input:
 //       anEntry    [IN]    - A const ItemType reference to the new entry to be
 //                              REMOVED FROM the tree.
-//
 // Output:
 //       Returns true if successful, otherwise false.
-//
 // =============================================================================
 template <class ItemType>
 bool CBST<ItemType>::Remove(const ItemType &anEntry)
 {
     bool success = false;
-    if (this->CBinaryNodeTree<ItemType>::Contains(anEntry))
-    {
-        CBinaryNode<ItemType> *oldNode = this->CBinaryNodeTree<ItemType>::GetRootPtr();
-        cout << "Root is: " << this->CBinaryNodeTree<ItemType>::GetRootData() << endl;
 
-        cout << "Trying to remove: " << anEntry << endl;
-        CBinaryNode<ItemType> *newRoot = RemoveValue(this->CBinaryNodeTree<ItemType>::GetRootPtr(), anEntry, success);
-
-        cout << "Trying to set new root: " << newRoot->GetItem() << endl;
-        if (!(oldNode->GetItem() == newRoot->GetItem()))
-        {
-            cout << "changing root" << newRoot->GetItem() << endl;
-
-            this->CBinaryNodeTree<ItemType>::SetRootPtr(newRoot);
-            cout << "root changed" << endl;
-        }
-    }
+    CBinaryNodeTree<ItemType>::SetRootPtr(RemoveValue(CBinaryNodeTree<ItemType>::GetRootPtr(), anEntry, success));
     return success;
 }

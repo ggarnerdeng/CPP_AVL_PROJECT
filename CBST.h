@@ -119,6 +119,9 @@ protected:
     virtual CBinaryNode<ItemType> *FindNode(CBinaryNode<ItemType> *treePtr,
                                             const ItemType &target,
                                             bool &success) const;
+    CBinaryNode<ItemType> *RemoveNode(CBinaryNode<ItemType> *nodePtr);
+    CBinaryNode<ItemType> *RemoveLeftmostNode(CBinaryNode<ItemType> *nodePtr, ItemType &inorderSuccessor);
+
 }; // end CBST
 
 #include "CBST.tpp"
