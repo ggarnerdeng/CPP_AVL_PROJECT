@@ -3,10 +3,11 @@
 // ============================================================================
 // Header file for the class CBST (Binary Search Tree)
 // ============================================================================
+// Programmer: Garner Deng
+// Date: 5/18/23
 
 #ifndef CBST_HEADER
 #define CBST_HEADER
-
 #include "CBinaryTreeInterface.h"
 #include "CBinaryNode.h"
 #include "CBinaryNodeTree.h"
@@ -98,12 +99,13 @@ protected:
     @return  CBinaryNode: Returns the updated subTreePtr after adding the new
                           node. */
     virtual CBinaryNode<ItemType> *RemoveValue(CBinaryNode<ItemType> *subTreePtr,
-                                               const ItemType &target, bool &success);
+                                               const ItemType &target,
+                                               bool &success);
 
     /** This function recursively finds where the given node should be placed
         and inserts it.  Then it makes sure the tree is AVL balanced.
-     @param subTreePtr: A pointer of CBinaryNode type for the root of the tree.
-     @param newNode: A pointer of CBinaryNode type for the new node to add/place.
+     @param subTreePtr: A pointer of CBinaryNode type for the tree root.
+     @param newNode: A pointer of CBinaryNode type for the new node to add.
      @return  A CBST pointer. */
     CBinaryNode<ItemType> *PlaceNode(CBinaryNode<ItemType> *subTreePtr,
                                      CBinaryNode<ItemType> *newNode);
@@ -119,8 +121,20 @@ protected:
     virtual CBinaryNode<ItemType> *FindNode(CBinaryNode<ItemType> *treePtr,
                                             const ItemType &target,
                                             bool &success) const;
-    CBinaryNode<ItemType> *RemoveNode(CBinaryNode<ItemType> *nodePtr);
-    CBinaryNode<ItemType> *RemoveLeftmostNode(CBinaryNode<ItemType> *nodePtr, ItemType &inorderSuccessor);
+
+    /** Helper function to RemoveValue. Covers leaf and single child cases.
+    @param nodePtr A pointer to the CBinaryNode to be removed.
+    @return A pointer to the updated CBinaryNode after removal.*/
+    CBinaryNode<ItemType> *RemoveValueHelper(CBinaryNode<ItemType> *nodePtr);
+
+    /** Helper function to RemoveValueHelper.
+        Covers cases with TWO children.
+        Removes the leftmost node from a node's right subtree.
+    @param nodePtr A pointer representing the starting CBinaryNode.
+    @param successor A reference to the successor.
+    @return A pointer to the updated CBinaryNode after removal.*/
+    CBinaryNode<ItemType> *RVH_2Children(CBinaryNode<ItemType> *nodePtr,
+                                         ItemType &successor);
 
 }; // end CBST
 
