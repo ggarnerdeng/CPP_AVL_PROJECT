@@ -1,34 +1,31 @@
-// ============================================================================
-// File: CPokemonInfo.h
-// ============================================================================
-// Header file for the class CPokemonInfo
-// ============================================================================
-// Programmer: Garner Deng
-// Date: 4/29/23
-
+// CPokemonInfo.h
 #ifndef CPOKEMONINFO_H
 #define CPOKEMONINFO_H
 
+#include <iostream>
 #include <string>
 
-class CPokemonInfo
-{
+class CPokemonInfo {
+private:
+    int m_id;
+    std::string m_name;
+
 public:
     CPokemonInfo();
     CPokemonInfo(int id, const std::string& name);
 
-    void SetID(int id);
+    void SetId(int id);
     void SetName(const std::string& name);
 
-    int GetID() const;
+    int GetId() const;
     std::string GetName() const;
+
+    bool operator==(const CPokemonInfo& rhs) const;
+    bool operator>(const CPokemonInfo& rhs) const;
+    bool operator<(const CPokemonInfo& rhs) const;
 
     friend std::istream& operator>>(std::istream& ins, CPokemonInfo& pokemon);
     friend std::ostream& operator<<(std::ostream& outs, const CPokemonInfo& pokemon);
-
-private:
-    int m_id;
-    std::string m_name;
 };
 
-#endif // CPOKEMONINFO_H
+#endif

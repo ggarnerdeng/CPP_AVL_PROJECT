@@ -16,15 +16,16 @@
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
-
 #include "CBST.h"
+
 #include "CPersonInfo.h"
 #include "CPokemonInfo.h"
+#include "GeneralTemplateInfo.h"
 
 using namespace std;
 
 // global constants
-const int MAX_ITEMS = 30;
+const int MAX_ITEMS = 151;
 
 // function prototype
 template <typename P>
@@ -34,11 +35,51 @@ void Visit(const P &item);
 //
 // ============================================================================
 
-// text file to input
-#define txtName "PersonBankInfo.txt"
+// Preprocessor Directives:
+//#define txtName "PersonBankInfo.txt" // Text file to analyze/organize
+//#define GeneralTemplateInfo CPersonInfo
+
+#define txtName "151pokemon.txt" // Text file to analyze/organize
+#define GeneralTemplateInfo CPokemonInfo
+//#define DEBUG                        // DEBUG flag
 
 int main()
 {
+    CBST<GeneralTemplateInfo> treeList;    // create a tree list
+    GeneralTemplateInfo people[MAX_ITEMS]; // allocate an array of 
+
+    ifstream inFile(txtName);
+
+    char header[256];
+    int index;
+
+    if (inFile.fail())
+    {
+        cerr << "Error opening " << txtName << " ...\n\n";
+        exit(EXIT_FAILURE);
+    }
+
+    // Get rid of the header in the file ("First", "Last", ... , "Savings")
+    inFile.getline(header, 256);
+
+    // Read all the items in the file and store in a CPersonInfo array
+    for (index = 0; index < MAX_ITEMS; ++index)
+    {
+        inFile >> people[index]; // usage of overloaded stream operator
+    }
+    // Add 20 items (CPersonInfo) to the treeList and remove them to test it.
+    cout << "\n\nAdding First 151 items\n\n";
+    for (index = 0; index < 151; ++index)
+    {
+        treeList.Add(people[index]);
+    }
+
+    // Display the treeList in inorder
+    cout << "\n\nDisplaying treeList in in-order\n\n";
+    treeList.InorderTraverse(Visit);
+    cout << endl;
+
+#ifdef DEBUG
     CBST<CPersonInfo> treeList;    // create a tree list
     CPersonInfo people[MAX_ITEMS]; // allocate an array of CPersonInfo
     ifstream inFile(txtName);
@@ -132,7 +173,7 @@ int main()
     cout << "\n\nDisplaying treeList3 in level-order\n\n";
     treeList3.LevelorderTraverse(Visit);
     cout << endl;
-
+#endif
     return 0;
 
 } // end of "main"

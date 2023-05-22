@@ -97,7 +97,7 @@ bool CBST<ItemType>::Add(const ItemType &newEntry)
 {
     if (this->Contains(newEntry))
     {
-        cout << "Denied attempt to add duplicate" << endl;
+        std::cout << "Denied attempt to add duplicate" << std::endl;
         return false;
     }
     CBinaryNode<ItemType> *newNodePtr = new CBinaryNode<ItemType>(newEntry);
@@ -526,7 +526,7 @@ bool CBST<ItemType>::Remove(const ItemType &anEntry)
     }
     else
     {
-        cout << "Entry does not exist in the tree." << endl;
+        std::cout << "Entry does not exist in the tree." << std::endl;
     }
 
     return success;

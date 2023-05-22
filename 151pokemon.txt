@@ -1,14 +1,15 @@
 ID	Name
+007	Squirtle
+065	Alakazam
+008	Wartortle
+009	Blastoise
+010	Caterpie
 001	Bulbasaur
 002	Ivysaur
 003	Venusaur
 004	Charmander
 005	Charmeleon
 006	Charizard
-007	Squirtle
-008	Wartortle
-009	Blastoise
-010	Caterpie
 011	Metapod
 012	Butterfree
 013	Weedle
@@ -63,7 +64,6 @@ ID	Name
 062	Poliwrath
 063	Abra
 064	Kadabra
-065	Alakazam
 066	Machop
 067	Machoke
 068	Machamp
@@ -120,7 +120,7 @@ ID	Name
 119	Seaking
 120	Staryu
 121	Starmie
-122	Mr. Mime
+122	MrMime
 123	Scyther
 124	Jynx
 125	Electabuzz
