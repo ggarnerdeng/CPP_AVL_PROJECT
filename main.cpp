@@ -16,33 +16,39 @@
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
-using namespace std;
 
 #include "CBST.h"
 #include "CPersonInfo.h"
+#include "CPokemonInfo.h"
+
+using namespace std;
 
 // global constants
 const int MAX_ITEMS = 30;
 
 // function prototype
-void Visit(const CPersonInfo &item);
+template <typename P>
+void Visit(const P &item);
 
 // ==== main ==================================================================
 //
 // ============================================================================
-#define add20remove10_or_add10remove9
-//#define CONTAINS_CHECK
+
+// text file to input
+#define txtName "PersonBankInfo.txt"
+
 int main()
 {
     CBST<CPersonInfo> treeList;    // create a tree list
     CPersonInfo people[MAX_ITEMS]; // allocate an array of CPersonInfo
-    ifstream inFile("PersonBankInfo.txt");
+    ifstream inFile(txtName);
+
     char header[256];
     int index;
 
     if (inFile.fail())
     {
-        cerr << "Error opening \"PersonBankInfo.txt\"...\n\n";
+        cerr << "Error opening " << txtName << " ...\n\n";
         exit(EXIT_FAILURE);
     }
 
@@ -55,32 +61,13 @@ int main()
         inFile >> people[index]; // usage of overloaded stream operator
     }
 
-// Add 20 items (CPersonInfo) to the treeList and remove them to test it.
-// #define add20remove10_or_add10remove9
-#ifdef add20remove10_or_add10remove9
+    // Add 20 items (CPersonInfo) to the treeList and remove them to test it.
     cout << "\n\nAdding First 20 items\n\n";
     for (index = 0; index < 20; ++index)
-#else
-    cout << "\n\nAdding First 10 items\n\n";
-    for (index = 0; index < 10; ++index)
-#endif
     {
         treeList.Add(people[index]);
     }
 
-#ifdef CONTAINS_CHECK
-    for (index = 0; index < 30; ++index)
-    {
-        if (treeList.Contains(people[index]))
-        {
-            cout << "this index is in: " << index << " " << treeList.Contains(people[index]) << endl;
-        }
-        else
-        {
-            cout << "NOT in: " << index << " " << treeList.Contains(people[index]) << endl;
-        }
-    }
-#endif
     // Display the treeList in pre-order
     cout << "\n\nDisplaying treeList in pre-order\n\n";
     treeList.PreorderTraverse(Visit);
@@ -101,33 +88,13 @@ int main()
     treeList.LevelorderTraverse(Visit);
     cout << endl;
 
-// Remove the first 10 items
-#ifdef add20remove10_or_add10remove9
+    // Remove the first 10 items
     cout << "\n\nRemoving first 10 items.\n\n";
     for (index = 0; index < 10; ++index)
-#else
-    cout << "\n\nRemoving first 9 items.\n\n";
-    for (index = 0; index < 9; ++index)
-#endif
-
     {
         treeList.Remove(people[index]);
     }
     cout << "\n\nFinished Removal.\n\n";
-
-#ifdef CONTAINS_CHECK
-    for (index = 0; index < 30; ++index)
-    {
-        if (treeList.Contains(people[index]))
-        {
-            cout << "this index is in: " << index << " " << treeList.Contains(people[index]) << endl;
-        }
-        else
-        {
-            cout << "NOT in: " << index << " " << treeList.Contains(people[index]) << endl;
-        }
-    }
-#endif
 
     // Add 10 more items (CPersonInfo) to the treeList
     cout << "\n\nAdding last 10 items.\n\n";
@@ -166,25 +133,23 @@ int main()
     treeList3.LevelorderTraverse(Visit);
     cout << endl;
 
-    // You may add more lines to test various other functions to your choosing.
-    // Though this should get you started.
-
     return 0;
 
 } // end of "main"
 
-// ==== Visit =================================================================
+// ==== Visit ================================================================
 //
-// This function displays a CPersonInfo.
+// This function displays an object of type T using the overloaded stream operator.
 //
 // Input:
-//      item [in]   -- A pass by reference CPersonInfo object.
+//      item [in]   -- A pass by reference object of type T.
 //
 // Output:
 //      void
 //
 // ============================================================================
-void Visit(const CPersonInfo &item)
+template <typename P>
+void Visit(const P &item)
 {
-    cout << item << endl; // usage of overloaded stream operator
+    std::cout << item << std::endl; // usage of overloaded stream operator
 }
